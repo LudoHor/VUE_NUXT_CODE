@@ -12,7 +12,7 @@
               <input
                 v-model="email"
                 type="email"
-                class="border-2 m-4 rounded-xl"
+                class="border-2 m-4 rounded-md"
                 name="email"
                 placeholder="Em@il"
               />
@@ -21,7 +21,7 @@
               <input
                 v-model="password"
                 type="password"
-                class="border-2"
+                class="border-2 rounded-md"
                 name="password"
                 placeholder="Password"
               />
