@@ -53,12 +53,12 @@ export default {
       local: {
         endpoints: {
           login: {
-            url: 'auth/local',
+            url: 'http://15.236.210.231:1337/auth/local',
             method: 'post',
             propertyName: 'jwt',
           },
           user: {
-            url: 'users/me',
+            url: 'http://15.236.210.231:1337/users/me',
             method: 'get',
             propertyName: false,
           },

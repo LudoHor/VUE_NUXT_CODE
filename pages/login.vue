@@ -12,7 +12,7 @@
               <input
                 v-model="email"
                 type="email"
-                class="border-2 m-4"
+                class="border-2 m-4 rounded-xl"
                 name="email"
                 placeholder="Em@il"
               />
