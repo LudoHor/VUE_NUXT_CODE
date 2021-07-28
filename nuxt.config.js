@@ -53,12 +53,12 @@ export default {
       local: {
         endpoints: {
           login: {
-            url: 'http://15.236.210.231:1337/auth/local',
+            url: 'https://fit-strapi-backend.herokuapp.com/auth/local',
             method: 'post',
             propertyName: 'jwt',
           },
           user: {
-            url: 'http://15.236.210.231:1337/users/me',
+            url: 'https://fit-strapi-backend.herokuapp.com/users/me',
             method: 'get',
             propertyName: false,
           },

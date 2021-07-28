@@ -6,7 +6,7 @@
         <strong>Username:</strong>
         {{ loggedInUser.username }}
       </p>
-      <p>
+      <p class="w-1/2 md:w-full">
         <strong>Email:</strong>
         {{ loggedInUser.email }}
       </p>
