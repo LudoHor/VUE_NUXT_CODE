@@ -53,12 +53,12 @@ export default {
       local: {
         endpoints: {
           login: {
-            url: 'https://fit-strapi-backend.herokuapp.com/auth/local',
+            url: 'https://mobility-app.herokuapp.com/auth/local',
             method: 'post',
             propertyName: 'jwt',
           },
           user: {
-            url: 'https://fit-strapi-backend.herokuapp.com/users/me',
+            url: 'https://mobility-app.herokuapp.com/users/me',
             method: 'get',
             propertyName: false,
           },

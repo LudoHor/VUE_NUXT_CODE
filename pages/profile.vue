@@ -10,7 +10,9 @@
         <strong>Email:</strong>
         {{ loggedInUser.email }}
       </p>
-      <p>{{loggedInUser}}</p>
+      <p><strong> Meno: </strong> {{loggedInUser.Meno}}</p>
+      <p><strong> Priezvisko: </strong>{{loggedInUser.Priezvisko}}</p>
+      <p><strong> Telefon: </strong>{{loggedInUser.Telefonne_cislo}}</p>
       <p><strong>List of properties:</strong></p>
       <div class="border-black">
       <li class="list-none" v-for="object in owner" :key="object.id">
@@ -20,6 +22,7 @@
           <strong>Additional info: </strong> {{ objectflat.info }}
         </p>
       </li>
+      <p>{{loggedInUser}}</p>
       </div>
       </div>
   </section>
