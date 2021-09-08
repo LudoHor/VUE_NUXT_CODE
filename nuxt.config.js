@@ -2,7 +2,7 @@ require('dotenv').config()
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'alfa-frontend',
+    title: 'Fit App',
     htmlAttrs: {
       lang: 'en',
     },
@@ -53,12 +53,12 @@ export default {
       local: {
         endpoints: {
           login: {
-            url: 'https://mobility-app.herokuapp.com/auth/local',
+            url: 'https://strapi-bb.herokuapp.com//auth/local',
             method: 'post',
             propertyName: 'jwt',
           },
           user: {
-            url: 'https://mobility-app.herokuapp.com/users/me',
+            url: 'https://strapi-bb.herokuapp.com//users/me',
             method: 'get',
             propertyName: false,
           },
