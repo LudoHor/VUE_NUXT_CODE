@@ -1,7 +1,7 @@
 <template>
   <section class="m-2 text-gray-600 text-center">
     <div class="border-black">
-
+      <NavVideo />
       <div class="mt-20" v-for="object in listOfVideos" :key="object.id">
         
         <li class="mt-20 list-none" v-for="video in object.Video" :key="video.id">
@@ -25,11 +25,13 @@
 <script>
 import { mapGetters } from 'vuex'
 import VideoPlayer from 'nuxt-video-player'
+import NavVideo from '~/components/NavBarVideo'
 
 export default {
   middleware: 'auth',
   components: {
     VideoPlayer,
+    NavVideo,
   },
   computed: {
     ...mapGetters(['loggedInUser']),
