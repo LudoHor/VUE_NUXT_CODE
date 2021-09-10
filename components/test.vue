@@ -2,14 +2,20 @@
   <section class="m-2 text-gray-600 text-center">
     <div class="content">
     <div class="border-black">
-    <div v-for="object in loggedInUser.Zoznam_videi" :key="object.id">
-      <p>{{object.Video}}</p>
-      <li v-for="object1 in object.Video.personalizovane_videa" :key="object1.id">
-        <p>{{object1.link}}</p>
-      </li>
+
       </div>
+      <div class="mt-20" v-for="object in listOfVideos" :key="object.id">
+        <li class="mt-20" v-for="video in object.Video" :key="video.id">
+         <p>Názov videa: {{ video.personalizovane_videa.Nazov_videa }} </p>
+          <div class="flex justify-center">
+          <video-player :src="`${video.personalizovane_videa.link}`" />
+          </div>
+          <p>Popis videa: {{ video.personalizovane_videa.Vseobecny_popis}} </p>
+          <p>Typ videa: {{ video.personalizovane_videa.Typ}} </p>
+        </li>
       </div>
-      <video-player src="https://www.youtube.com/embed/t0RwGmzFCdA"/>
+      <div>
+      </div>
       </div>
   </section>
 
@@ -26,6 +32,10 @@ export default {
   },
   computed: {
     ...mapGetters(['loggedInUser']),
+
+    listOfVideos () {
+      return this.$store.state.auth.user.Zoznam_videi
+    }
   },
 }
 </script>

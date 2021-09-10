@@ -23,29 +23,33 @@
         </p>
       </li>
       <p>{{loggedInUser}}</p>
+      <p>{{ age }}</p>
       </div>
       </div>
   </section>
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 import { mapGetters } from 'vuex'
 
 export default {
   middleware: 'auth',
   computed: {
     ...mapGetters(['loggedInUser']),
+    age () {
+            return this.$store.state.auth.user.email
+        },
   },
   data() {
     return {
       owner: [],
     }
   },
-  created() {
-    axios
-      .get('http://localhost:1337/owners?users_permissions_user=$loggedInUser.id')
-      .then((response) => (this.owner = response.data))
-  },
+  // created() {
+  //   axios
+  //     .get('http://localhost:1337/owners?users_permissions_user=$loggedInUser.id')
+  //     .then((response) => (this.owner = response.data))
+  // },
 }
 </script>
