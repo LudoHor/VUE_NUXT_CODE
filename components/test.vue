@@ -14,7 +14,7 @@
           <p>Typ videa: {{ video.personalizovane_videa.Typ}} </p>
         </li>
       </div>
-      <div>
+      <div class="">
       </div>
       </div>
   </section>
