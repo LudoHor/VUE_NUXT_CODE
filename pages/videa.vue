@@ -3,6 +3,7 @@
     <h2 class="text-xl m-2"><strong>Moje videa</strong></h2>
     <div class="content">
       </div>
+    <VideaNav />
     <Test />
   </section>
 </template>
@@ -11,11 +12,13 @@
 import axios from 'axios'
 import { mapGetters } from 'vuex'
 import Test from '~/components/test.vue'
+import VideaNav from '~/components/NavBarVideo.vue'
 
 export default {
   middleware: 'auth',
   components: {
       Test,
+      VideaNav,
   },
   computed: {
     ...mapGetters(['loggedInUser']),
