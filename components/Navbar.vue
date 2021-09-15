@@ -9,16 +9,17 @@
         >
           <nuxt-link to="/"> Fit app</nuxt-link>
         </h1>
+        
         <nav
           v-if="isAuthenticated"
           class="px-6 mt-4 flex-1 flex xl:mt-0 xl:justify-end p-4"
         >
-          <p class="px-6 text-gray-600">Welcome {{ loggedInUser.username }}</p>
-          <p>|</p>
-          <a class="px-6 text-gray-600" href="/videa">Moje Videa</a>
-          <p>|</p>
-          <a class="px-6 text-gray-600" href="/profile">My Profile</a>
-          <p>|</p>
+          <p class="px-6 text-gray-600 border-r-2 border-gray-500">Welcome {{ loggedInUser.username }}</p>
+          
+          <a class="px-6 text-gray-600 border-r-2 border-gray-500" href="/videa">Moje Videa</a>
+          
+          <a class="px-6 text-gray-600 border-r-2 border-gray-500" href="/profile">My Profile</a>
+          
           <button class="px-6 text-gray-600" @click="logout">Logout</button>
         </nav>
         <nav

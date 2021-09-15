@@ -2,12 +2,13 @@
   <section class="m-2 text-gray-600 text-center">
     <div class="border-black">
       <NavVideo />
-      <div class="mt-20" v-for="object in listOfVideos" :key="object.id">
+      <div class="mt-5" v-for="object in listOfVideos" :key="object.id">
         
-        <li class="mt-20 list-none" v-for="video in object.Video" :key="video.id">
+        <li class="mt-5 list-none" v-for="video in object.Video" :key="video.id">
           
-          <div v-if="object.Den == 'utorok'">
+          <div v-if="object.Den == 'utorok' && object.Tyzden == '2'">
          <p>Názov videa: {{ video.personalizovane_videa.Nazov_videa }} </p>
+         <p>{{ object.Tyzden }}</p>
           <div class="flex justify-center m-4">
           <video-player :src="`${video.personalizovane_videa.link}`" />
           </div>
@@ -17,6 +18,9 @@
         </li>
       </div>
         
+      </div>
+      <div>
+        <p>{{weekNr}}</p>
       </div>
   </section>
 
