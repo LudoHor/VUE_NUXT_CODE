@@ -5,18 +5,21 @@
         class="p-2 border-b-4 border-gray-600 flex flex-col items-center xl:flex-row"
       >
         <h1
-          class="bg-indigo-100 inline-block p-2 uppercase text-blue-900 text-2xl rounded-xl"
+          class="bg-indigo-100 inline-block p-3 uppercase text-blue-900 text-2xl rounded-xl ml-4"
         >
-          <nuxt-link to="/"> AlFa-quiller </nuxt-link>
+          <nuxt-link to="/"> Fit app</nuxt-link>
         </h1>
+        
         <nav
           v-if="isAuthenticated"
           class="px-6 mt-4 flex-1 flex xl:mt-0 xl:justify-end p-4"
         >
-          <p class="px-6 text-gray-600">Welcome {{ loggedInUser.username }}</p>
-          <p>|</p>
-          <a class="px-6 text-gray-600" href="/profile">My Profile</a>
-          <p>|</p>
+          <p class="px-6 text-gray-600 border-r-2 border-gray-500">Welcome {{ loggedInUser.username }}</p>
+          
+          <a class="px-6 text-gray-600 border-r-2 border-gray-500" href="/videa">Moje Videa</a>
+          
+          <a class="px-6 text-gray-600 border-r-2 border-gray-500" href="/profile">My Profile</a>
+          
           <button class="px-6 text-gray-600" @click="logout">Logout</button>
         </nav>
         <nav

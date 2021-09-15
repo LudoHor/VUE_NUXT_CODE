@@ -1,5 +1,5 @@
 <template>
-  <section class="section">
+  <section class="text-center">
     <div class="container">
       <div class="columns">
         <div class="column is-4 is-offset-4">
@@ -15,7 +15,7 @@
                 <input
                   v-model="email"
                   type="email"
-                  class="input"
+                  class="border-2 rounded-md"
                   name="email"
                 />
               </div>
