@@ -10,22 +10,10 @@
         <strong>Email:</strong>
         {{ loggedInUser.email }}
       </p>
-      <p><strong> Meno: </strong> {{loggedInUser.Meno}}</p>
-      <p><strong> Priezvisko: </strong>{{loggedInUser.Priezvisko}}</p>
-      <p><strong> Telefon: </strong>{{loggedInUser.Telefonne_cislo}}</p>
-      <p><strong>List of properties:</strong></p>
-      <div class="border-black">
-      <li class="list-none" v-for="object in owner" :key="object.id">
-        <p class="items-start" v-for="objectflat in object.flats" :key="objectflat.id">
-          <nuxt-link to="/"><strong>Address:</strong>  {{ objectflat.address }} </nuxt-link> <br />
-          <strong>Monthly rent:</strong> {{ objectflat.rent }} <br />
-          <strong>Additional info: </strong> {{ objectflat.info }}
-        </p>
-      </li>
-      <p>{{loggedInUser}}</p>
-      <p>{{ age }}</p>
-      </div>
-      </div>
+      <p><strong> Meno: </strong> {{ loggedInUser.Meno }}</p>
+      <p><strong> Priezvisko: </strong>{{ loggedInUser.Priezvisko }}</p>
+      <p><strong> Telefon: </strong>{{ loggedInUser.Telefonne_cislo }}</p>
+    </div>
   </section>
 </template>
 
@@ -37,9 +25,9 @@ export default {
   middleware: 'auth',
   computed: {
     ...mapGetters(['loggedInUser']),
-    age () {
-            return this.$store.state.auth.user.email
-        },
+    age() {
+      return this.$store.state.auth.user.email
+    },
   },
   data() {
     return {

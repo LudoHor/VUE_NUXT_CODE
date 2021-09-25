@@ -1,37 +1,87 @@
 <template>
   <section class="m-2 text-gray-600 text-center">
-    <h2 class="text-xl m-2"><strong>Moje videa</strong></h2>
-    <div class="content">
+    <div>
+      <label for="week">Vyber týždeň: </label>
+      <select id="week" name="week" v-model="tyzden">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+      </select>
+
+      <select id="week" name="week" v-model="den">
+        <option>pondelok</option>
+        <option>utorok</option>
+        <option>streda</option>
+        <option>stvrtok</option>
+        <option>piatok</option>
+        <option>sobota</option>
+        <option>nedela</option>
+      </select>
+    </div>
+    <div class="border-black">
+      <!-- <NavVideo /> -->
+      <div v-if="listOfVideos" class="mt-20">
+        <li
+          class="mt-20 list-none"
+          v-for="video in listOfVideos"
+          :key="video.id"
+        >
+          <div>
+            <p>Názov videa: {{ video.personalizovane_videa.Nazov_videa }}</p>
+            <div class="flex justify-center m-4">
+              <video-player :src="`${video.personalizovane_videa.link}`" />
+            </div>
+            <p class="m-4">
+              Popis videa: {{ video.personalizovane_videa.Vseobecny_popis }}
+            </p>
+            <p class="m-4">
+              Personalizovany popis videa:
+              {{ video.Personalizovany_popis }}
+            </p>
+            <p class="m-4">Typ videa: {{ video.personalizovane_videa.Typ }}</p>
+          </div>
+        </li>
       </div>
-    <VideaNav />
-    <Test />
+    </div>
   </section>
 </template>
 
 <script>
-import axios from 'axios'
 import { mapGetters } from 'vuex'
-import Test from '~/components/test.vue'
-import VideaNav from '~/components/NavBarVideo.vue'
+import VideoPlayer from 'nuxt-video-player'
+import NavVideo from '~/components/NavBarVideo'
 
 export default {
   middleware: 'auth',
   components: {
-      Test,
-      VideaNav,
-  },
-  computed: {
-    ...mapGetters(['loggedInUser']),
+    VideoPlayer,
+    NavVideo,
   },
   data() {
     return {
-      owner: [],
+      den: 'pondelok',
+      tyzden: 1,
     }
   },
-  created() {
-    axios
-      .get('http://localhost:1337/owners?users_permissions_user=$loggedInUser.id')
-      .then((response) => (this.owner = response.data))
+
+  computed: {
+    ...mapGetters(['loggedInUser']),
+
+    listOfVideos() {
+      const videa = this.$store.state.auth.user.Denny_plan
+      const filteredVid = videa.filter(
+        (el) => el.Den == this.den && el.Tyzden == this.tyzden
+      )
+      if (filteredVid.length != 0) {
+        return filteredVid[0].Video
+      }
+      return null
+    },
   },
 }
 </script>

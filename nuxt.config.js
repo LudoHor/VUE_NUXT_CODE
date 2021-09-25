@@ -53,12 +53,12 @@ export default {
       local: {
         endpoints: {
           login: {
-            url: 'https://strapi-bb.herokuapp.com/auth/local',
+            url: 'https://coachapp.click/auth/local',
             method: 'post',
             propertyName: 'jwt',
           },
           user: {
-            url: 'https://strapi-bb.herokuapp.com/users/me',
+            url: 'https://coachapp.click/users/me',
             method: 'get',
             propertyName: false,
           },
