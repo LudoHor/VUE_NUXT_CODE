@@ -1,16 +1,15 @@
 <template>
   <section class="m-2 text-gray-600 text-center">
     <div>
-      <label for="week">Vyber týždeň: </label>
       <select id="week" name="week" v-model="tyzden">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
+        <option value="1">Týždeň 1</option>
+        <option value="2">Týždeň 2</option>
+        <option value="3">Týždeň 3</option>
+        <option value="4">Týždeň 4</option>
+        <option value="5">Týždeň 5</option>
+        <option value="6">Týždeň 6</option>
+        <option value="7">Týždeň 7</option>
+        <option value="8">Týždeň 8</option>
       </select>
 
       <select id="week" name="week" v-model="den">
