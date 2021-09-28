@@ -35,7 +35,13 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/auth',
+    '@nuxtjs/markdownit',
   ],
+
+  // This is for displaying rich text content in the frontend.
+  markdownit: {
+    runtime: true, // Support `$md()`
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
