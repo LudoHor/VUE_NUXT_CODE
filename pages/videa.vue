@@ -38,10 +38,10 @@
             <p class="m-4">
               Popis videa: {{ video.personalizovane_videa.Vseobecny_popis }}
             </p>
-            <p class="m-4">
-              Personalizovany popis videa:
-              {{ video.Personalizovany_popis }}
-            </p>
+
+            <p class="m-4">Personalizovany popis videa:</p>
+            <div v-html="$md.render(video.Personalizovany_popis)"></div>
+
             <p class="m-4">Typ videa: {{ video.personalizovane_videa.Typ }}</p>
           </div>
         </li>
