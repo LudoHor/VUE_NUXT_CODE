@@ -33,7 +33,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@nuxt/image',
+
     '@nuxtjs/auth',
     '@nuxtjs/markdownit',
   ],
