@@ -35,6 +35,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/auth',
     '@nuxtjs/markdownit',
+    '@nuxt/image',
   ],
 
   // This is for displaying rich text content in the frontend.
