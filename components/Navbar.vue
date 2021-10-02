@@ -31,7 +31,7 @@
                   d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
                 />
               </svg>
-              <label class="font-bold" href="/">Complex Concept</label>
+              <div class="font-bold">Complex Concept</div>
             </nuxt-link>
           </div>
 
@@ -52,30 +52,37 @@
         </div>
 
         <!-- secondary nav -->
-        <div class="hidden md:flex items-center space-x-1">
-          <a v-if="isAuthenticated" href="" class="py-5 px-3" @click="logout()"
-            >Odhlasit sa</a
+        <div class="flex items-center space-x-1">
+          <a
+            v-if="isAuthenticated"
+            href=""
+            class="hidden md:flex py-5 px-3"
+            @click="logout()"
+            >Odhlásiť sa</a
           >
           <a
             v-if="!isAuthenticated"
             href="/login"
             class="
               py-2
+              text-bold
               px-3
-              bg-yellow-400
-              hover:bg-yellow-300
-              text-yellow-900
-              hover:text-yellow-800
+              bg-indigo-200
+              hover:bg-indigo-300
+              text-blue-900
               rounded
               transition
               duration-300
+              bg-indigo-200
+              rounded
+              hover:bg-indigo-300
             "
-            >Prihlasit sa</a
-          >
+            ><strong> Prihlásiť sa</strong>
+          </a>
         </div>
 
         <!-- mobile button goes here -->
-        <div class="md:hidden flex items-center">
+        <div class="md:hidden flex items-center" v-if="isAuthenticated">
           <button class="mobile-menu-button" @click="mobile_menu_f()">
             <svg
               class="w-6 h-6"
@@ -97,13 +104,45 @@
     </div>
 
     <!-- mobile menu -->
-    <div class="mobile-menu md:hidden" :class="{ hidden: mobile_menu }">
-      <a href="/videa" class="block py-2 px-4 text-sm hover:bg-gray-200"
-        >Moje Videa</a
+    <div
+      class="absolute mobile-menu w-full md:hidden bg-gray-100 opacity-90"
+      :class="{ hidden: mobile_menu }"
+    >
+      <a
+        href="/videa"
+        class="
+          block
+          py-2
+          px-4
+          text-sm text-center text-gray-700
+          hover:bg-gray-200
+        "
+        ><strong>Moje Videá</strong></a
       >
-      <a href="/profile" class="block py-2 px-4 text-sm hover:bg-gray-200"
-        >Profil</a
+      <a
+        href="/profile"
+        class="
+          block
+          py-2
+          px-4
+          text-sm text-center text-gray-700
+          hover:bg-gray-200
+        "
+        ><strong>Profil</strong></a
       >
+      <div
+        class="
+          block
+          py-2
+          px-4
+          text-sm text-center text-gray-700
+          hover:bg-gray-200
+          cursor-pointer
+        "
+        @click="logout()"
+      >
+        <strong>Odhlásiť sa</strong>
+      </div>
     </div>
   </nav>
 </template>
@@ -121,8 +160,11 @@ export default {
   },
   mounted() {},
   methods: {
-    async logout() {
+    async logout(redirect) {
       await this.$auth.logout()
+
+      this.$router.push('/')
+      this.mobile_menu_f()
     },
     mobile_menu_f() {
       this.mobile_menu = !this.mobile_menu

@@ -1,9 +1,9 @@
 <template>
   <section class="m-2 text-center">
-    <div class="container">
+    <div class="container mx-auto">
       <div class="columns">
         <div class="column is-4 is-offset-4">
-          <h2 class="px-6 text-gray-600"><strong>Login</strong></h2>
+          <h2 class="px-6 text-gray-600"><strong>Prihlásenie</strong></h2>
 
           <Notification v-if="error" type="danger" :message="error" />
 
@@ -23,16 +23,19 @@
                 type="password"
                 class="border-2 rounded-md"
                 name="password"
-                placeholder="Password"
+                placeholder="Heslo"
               />
             </div>
             <div class="control">
-              <button type="submit" class="m-5 px-2 py-2 bg-indigo-200 rounded">
-                <span class="text-blue-900"><strong>Login</strong></span>
+              <button
+                type="submit"
+                class="m-5 px-2 py-2 bg-indigo-200 rounded hover:bg-indigo-300"
+              >
+                <span class="text-blue-900"><strong>Prihlásiť sa</strong></span>
               </button>
             </div>
           </form>
-          <div>
+          <!-- <div>
             <p class="text-gray-600">
               Don't have an account?
               <nuxt-link to="/register" class="text-gray-600"
@@ -44,7 +47,7 @@
                 >Forgot Password?</nuxt-link
               >
             </p>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
