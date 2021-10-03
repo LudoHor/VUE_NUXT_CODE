@@ -2,7 +2,7 @@ require('dotenv').config()
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Fit App',
+    title: 'Complex Concept',
     htmlAttrs: {
       lang: 'en',
     },
@@ -18,7 +18,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~plugins/axios'],
+  plugins: ['~plugins/axios', '~plugins/outsideclick'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

@@ -1,5 +1,5 @@
 <template>
-  <section class="m-2 text-gray-600 text-center">
+  <div class="m-2 text-gray-600 text-center">
     <h2 class="text-xl m-2"><strong>My Profile</strong></h2>
     <div class="content">
       <p>
@@ -14,7 +14,7 @@
       <p><strong> Priezvisko: </strong>{{ loggedInUser.Priezvisko }}</p>
       <p><strong> Telefon: </strong>{{ loggedInUser.Telefonne_cislo }}</p>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>

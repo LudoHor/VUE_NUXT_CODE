@@ -5,27 +5,32 @@
         <div class="column is-4 is-offset-4">
           <h2 class="px-6 text-gray-600"><strong>Prihlásenie</strong></h2>
 
-          <Notification v-if="error" type="danger" :message="error" />
-
           <form method="post" @submit.prevent="login">
             <div class="inline-block">
               <input
                 v-model="email"
                 type="email"
-                class="border-2 m-4 rounded-md"
+                class="border-2 m-4 rounded-md p-2"
                 name="email"
                 placeholder="Em@il"
+                title="Please enter Alphabets."
               />
             </div>
             <div class="">
               <input
                 v-model="password"
                 type="password"
-                class="border-2 rounded-md"
+                class="border-2 rounded-md p-2"
                 name="password"
                 placeholder="Heslo"
               />
             </div>
+            <Notification
+              v-if="error"
+              type="danger"
+              class="mt-2"
+              :message="'Email alebo heslo je nesprávne'"
+            />
             <div class="control">
               <button
                 type="submit"
