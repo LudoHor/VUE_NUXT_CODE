@@ -5,6 +5,17 @@
       <div class="section max-w-xl">
         <nuxt-img class="object-center" src="/pic/CC.jpg" alt="" />
       </div>
+      <Logo />
     </div>
   </section>
 </template>
+
+<script>
+import Logo from '~/components/Logo'
+
+export default {
+  components: {
+    Logo,
+  },
+}
+</script>
