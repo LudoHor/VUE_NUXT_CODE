@@ -27,7 +27,7 @@
                   alt=""
                 />
 
-                <div class="font-bold">Complex Concept</div>
+                <div class="font-bold text-gold-100">Complex Concept</div>
               </nuxt-link>
             </div>
 
@@ -38,12 +38,12 @@
             >
               <a
                 href="/videa"
-                class="py-5 px-3 text-gray-700 hover:text-gray-900"
+                class="py-5 px-3 text-gold-100 hover:text-gold-500"
                 >Môj Plán</a
               >
               <a
                 href="/profile"
-                class="py-5 px-3 text-gray-700 hover:text-gray-900"
+                class="py-5 px-3 text-gold-100 hover:text-gold-500"
                 >Profil</a
               >
             </div>
@@ -54,7 +54,7 @@
             <a
               v-if="isAuthenticated"
               href=""
-              class="hidden md:flex py-5 px-3"
+              class="hidden md:flex py-5 px-3 text-gold-100"
               @click="logout()"
               >Odhlásiť sa</a
             >
@@ -65,15 +65,12 @@
                 py-2
                 text-bold
                 px-3
-                bg-indigo-200
-                hover:bg-indigo-300
-                text-blue-900
+                bg-gold-100
+                hover:bg-gold-500
+                text-gold-900
                 rounded
                 transition
                 duration-300
-                bg-indigo-200
-                rounded
-                hover:bg-indigo-300
               "
               ><strong> Prihlásenie</strong>
             </a>
@@ -108,12 +105,12 @@
       >
         <a
           href="/videa"
-          class="block py-2 px-4 text-center text-gray-700 hover:bg-gray-200"
+          class="block py-2 px-4 text-center text-gold-100 hover:bg-gray-200"
           ><strong>Môj Plán</strong></a
         >
         <a
           href="/profile"
-          class="block py-2 px-4 text-center text-gray-700 hover:bg-gray-200"
+          class="block py-2 px-4 text-center text-gold-100 hover:bg-gray-200"
           ><strong>Profil</strong></a
         >
         <div
@@ -121,7 +118,7 @@
             block
             py-2
             px-4
-            text-center text-gray-700
+            text-center text-gold-100
             hover:bg-gray-200
             cursor-pointer
           "

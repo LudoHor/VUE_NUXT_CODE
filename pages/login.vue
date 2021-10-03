@@ -3,14 +3,21 @@
     <div class="container mx-auto">
       <div class="columns">
         <div class="column is-4 is-offset-4">
-          <h2 class="px-6 text-gray-600"><strong>Prihlásenie</strong></h2>
+          <h2 class="px-6 text-gold-100"><strong>Prihlásenie</strong></h2>
 
           <form method="post" @submit.prevent="login">
             <div class="inline-block">
               <input
                 v-model="email"
                 type="email"
-                class="border-2 m-4 rounded-md p-2"
+                class="
+                  border-2
+                  m-4
+                  border-gold-100
+                  rounded-md
+                  p-2
+                  focus:border-gold-500 focus:outline-none
+                "
                 name="email"
                 placeholder="Em@il"
                 title="Please enter Alphabets."
@@ -20,7 +27,12 @@
               <input
                 v-model="password"
                 type="password"
-                class="border-2 rounded-md p-2"
+                class="
+                  border-2 border-gold-100
+                  rounded-md
+                  p-2
+                  focus:border-gold-500 focus:outline-none
+                "
                 name="password"
                 placeholder="Heslo"
               />
@@ -34,9 +46,9 @@
             <div class="control">
               <button
                 type="submit"
-                class="m-5 px-2 py-2 bg-indigo-200 rounded hover:bg-indigo-300"
+                class="m-5 px-2 py-2 bg-gold-100 rounded hover:bg-gold-500"
               >
-                <span class="text-blue-900"><strong>Prihlásiť sa</strong></span>
+                <span class="text-gold-900"><strong>Prihlásiť sa</strong></span>
               </button>
             </div>
           </form>
