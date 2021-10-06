@@ -46,7 +46,18 @@
             <div class="control">
               <button
                 type="submit"
-                class="m-5 px-2 py-2 bg-gold-100 rounded hover:bg-gold-500"
+                class="
+                  m-5
+                  py-2
+                  text-bold
+                  px-3
+                  bg-gold-50
+                  hover:bg-gold-100
+                  text-gold-500
+                  rounded
+                  transition
+                  duration-300
+                "
               >
                 <span class="text-gold-900"><strong>Prihlásiť sa</strong></span>
               </button>

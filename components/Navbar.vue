@@ -1,7 +1,7 @@
 <template>
   <div class="py-8">
     <nav
-      class="bg-gray-100 fixed inset-x-0 top-0"
+      class="bg-gray-100 fixed inset-x-0 top-0 z-50"
       v-click-outside="mobile_menu_close"
     >
       <div class="max-w-6xl mx-auto px-4">
@@ -65,9 +65,9 @@
                 py-2
                 text-bold
                 px-3
-                bg-gold-100
-                hover:bg-gold-500
-                text-gold-900
+                bg-gold-50
+                hover:bg-gold-100
+                text-gold-500
                 rounded
                 transition
                 duration-300
@@ -80,7 +80,7 @@
           <div class="md:hidden flex items-center" v-if="isAuthenticated">
             <button class="mobile-menu-button" @click="mobile_menu_f">
               <svg
-                class="w-6 h-6 mobile-menu-button"
+                class="w-6 h-6 mobile-menu-button text-gold-100"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
