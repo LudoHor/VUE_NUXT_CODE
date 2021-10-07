@@ -83,106 +83,109 @@
                     </span>
                   </button>
 
-                  <!--
-      Select popover, show/hide based on select state.
-
-      Entering: ""
-        From: ""
-        To: ""
-      Leaving: "transition ease-in duration-100"
-        From: "opacity-100"
-        To: "opacity-0"
-    -->
-                  <ul
-                    v-if="visibledays"
-                    ref="ul"
-                    class="
-                      absolute
-                      z-10
-                      mt-1
-                      w-full
-                      bg-white
-                      shadow-lg
-                      max-h-56
-                      rounded-md
-                      py-1
-                      text-base
-                      ring-1 ring-black ring-opacity-5
-                      overflow-auto
-                      focus:outline-none
-                      sm:text-sm
-                    "
-                    tabindex="-1"
-                    role="listbox"
-                    aria-labelledby="listbox-label"
-                    aria-activedescendant="listbox-option-3"
+                  <transition
+                    enter-class="transform -translate-y-6 opacity-0"
+                    enter-active-class="transition duration-500 ease-in-out"
+                    leave-to-class="transform -translate-y-6 opacity-0 "
+                    leave-active-class="transition duration-500 ease-in-out"
                   >
-                    <!--
+                    <ul
+                      v-if="visibledays"
+                      ref="ul"
+                      class="
+                        absolute
+                        z-10
+                        mt-1
+                        w-full
+                        bg-white
+                        shadow-lg
+                        max-h-56
+                        rounded-md
+                        py-1
+                        text-base
+                        ring-1 ring-black ring-opacity-5
+                        overflow-auto
+                        focus:outline-none
+                        sm:text-sm
+                      "
+                      tabindex="-1"
+                      role="listbox"
+                      aria-labelledby="listbox-label"
+                      aria-activedescendant="listbox-option-3"
+                    >
+                      <!--
         Select option, manage highlight styles based on mouseenter/mouseleave and keyboard navigation.
 
         Highlighted: "text-white bg-indigo-600", Not Highlighted: "text-gray-900"
       -->
-                    <li
-                      class="
-                        text-gold-500
-                        cursor-default
-                        select-none
-                        relative
-                        py-2
-                        pl-3
-                        pr-9
-                      "
-                      id="listbox-option-0"
-                      role="option"
-                      v-for="(day, day2) in days"
-                      :key="day"
-                      @click="changeday(day, day2)"
-                    >
-                      <div class="flex items-center">
-                        <!-- Selected: "font-semibold", Not Selected: "font-normal" -->
-                        <span
-                          class="font-normal ml-3 block truncate text-gold-100"
-                        >
-                          {{ day2 }}
-                        </span>
-                      </div>
+                      <li
+                        class="
+                          text-gold-500
+                          cursor-default
+                          select-none
+                          relative
+                          py-2
+                          pl-3
+                          pr-9
+                        "
+                        id="listbox-option-0"
+                        role="option"
+                        v-for="(day, day2) in days"
+                        :key="day"
+                        @click="changeday(day, day2)"
+                      >
+                        <div class="flex items-center">
+                          <!-- Selected: "font-semibold", Not Selected: "font-normal" -->
+                          <span
+                            class="
+                              font-normal
+                              ml-3
+                              block
+                              truncate
+                              text-gold-100
+                            "
+                          >
+                            {{ day2 }}
+                          </span>
+                        </div>
 
-                      <!--
+                        <!--
           Checkmark, only display for selected option.
 
           Highlighted: "text-white", Not Highlighted: "text-indigo-600"
         -->
-                      <span
-                        v-if="day === den"
-                        class="
-                          text-gold-500
-                          absolute
-                          inset-y-0
-                          right-0
-                          flex
-                          items-center
-                          pr-4
-                        "
-                      >
-                        <!-- Heroicon name: solid/check -->
-                        <svg
-                          class="h-5 w-5"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                          aria-hidden="true"
+                        <span
+                          v-if="day === den"
+                          class="
+                            text-gold-500
+                            absolute
+                            inset-y-0
+                            right-0
+                            flex
+                            items-center
+                            pr-4
+                          "
                         >
-                          <path
-                            fill-rule="evenodd"
-                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                            clip-rule="evenodd"
-                          />
-                        </svg>
-                      </span>
-                    </li>
+                          <!-- Heroicon name: solid/check -->
+                          <svg
+                            class="h-5 w-5"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                            aria-hidden="true"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                        </span>
+                      </li>
 
-                    <!-- More items... -->
-                  </ul>
+                      <!-- More items... -->
+                    </ul>
+                  </transition>
                 </div>
                 <div class="mt-1 relative" v-click-outside="closeweeks">
                   <button
@@ -254,96 +257,110 @@
         From: "opacity-100"
         To: "opacity-0"
     -->
-                  <ul
-                    v-if="visibleweeks"
-                    ref="ul"
-                    class="
-                      absolute
-                      z-10
-                      mt-1
-                      w-full
-                      bg-white
-                      shadow-lg
-                      max-h-56
-                      rounded-md
-                      py-1
-                      text-base
-                      ring-1 ring-black ring-opacity-5
-                      overflow-auto
-                      focus:outline-none
-                      sm:text-sm
-                    "
-                    tabindex="-1"
-                    role="listbox"
-                    aria-labelledby="listbox-label"
-                    aria-activedescendant="listbox-option-3"
+
+                  <transition
+                    enter-class="transform -translate-y-6 opacity-0"
+                    enter-active-class="transition duration-500 ease-in-out"
+                    leave-to-class="transform -translate-y-6 opacity-0 "
+                    leave-active-class="transition duration-500 ease-in-out"
                   >
-                    <!--
+                    <ul
+                      v-if="visibleweeks"
+                      ref="ul"
+                      class="
+                        absolute
+                        z-10
+                        mt-1
+                        w-full
+                        bg-white
+                        shadow-lg
+                        max-h-56
+                        rounded-md
+                        py-1
+                        text-base
+                        ring-1 ring-black ring-opacity-5
+                        overflow-auto
+                        focus:outline-none
+                        sm:text-sm
+                      "
+                      tabindex="-1"
+                      role="listbox"
+                      aria-labelledby="listbox-label"
+                      aria-activedescendant="listbox-option-3"
+                    >
+                      <!--
         Select option, manage highlight styles based on mouseenter/mouseleave and keyboard navigation.
 
         Highlighted: "text-white bg-indigo-600", Not Highlighted: "text-gray-900"
       -->
-                    <li
-                      class="
-                        text-gold-500
-                        cursor-default
-                        select-none
-                        relative
-                        py-2
-                        pl-3
-                        pr-9
-                      "
-                      id="listbox-option-0"
-                      role="option"
-                      v-for="(week2, week) in weeks"
-                      :key="week"
-                      @click="changeweek(week, week2)"
-                    >
-                      <div class="flex items-center">
-                        <!-- Selected: "font-semibold", Not Selected: "font-normal" -->
-                        <span
-                          class="font-normal ml-3 block truncate text-gold-100"
-                        >
-                          {{ week2 }}
-                        </span>
-                      </div>
+                      <li
+                        class="
+                          text-gold-500
+                          cursor-default
+                          select-none
+                          relative
+                          py-2
+                          pl-3
+                          pr-9
+                        "
+                        id="listbox-option-0"
+                        role="option"
+                        v-for="(week2, week) in weeks"
+                        :key="week"
+                        @click="changeweek(week, week2)"
+                      >
+                        <div class="flex items-center">
+                          <!-- Selected: "font-semibold", Not Selected: "font-normal" -->
+                          <span
+                            class="
+                              font-normal
+                              ml-3
+                              block
+                              truncate
+                              text-gold-100
+                            "
+                          >
+                            {{ week2 }}
+                          </span>
+                        </div>
 
-                      <!--
+                        <!--
           Checkmark, only display for selected option.
 
           Highlighted: "text-white", Not Highlighted: "text-indigo-600"
         -->
-                      <span
-                        v-if="week === tyzden"
-                        class="
-                          text-gold-500
-                          absolute
-                          inset-y-0
-                          right-0
-                          flex
-                          items-center
-                          pr-4
-                        "
-                      >
-                        <!-- Heroicon name: solid/check -->
-                        <svg
-                          class="h-5 w-5"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                          aria-hidden="true"
+                        <span
+                          v-if="week === tyzden"
+                          class="
+                            text-gold-500
+                            absolute
+                            inset-y-0
+                            right-0
+                            flex
+                            items-center
+                            pr-4
+                          "
                         >
-                          <path
-                            fill-rule="evenodd"
-                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                            clip-rule="evenodd"
-                          />
-                        </svg>
-                      </span>
-                    </li>
+                          <!-- Heroicon name: solid/check -->
+                          <svg
+                            class="h-5 w-5"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                            aria-hidden="true"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                        </span>
+                      </li>
 
-                    <!-- More items... -->
-                  </ul>
+                      <!-- More items... -->
+                    </ul>
+                  </transition>
                 </div>
               </div>
             </div>
@@ -357,42 +374,38 @@
             :key="video.id"
           >
             <div class="bg-white p-6 rounded-lg">
-              <iframe
-                class="
-                  lg:h-60
-                  xl:h-56
-                  md:h-64
-                  sm:h-72
-                  xs:h-72
-                  h-72
-                  w-full
-                  rounded
-                  object-cover object-center
-                  mb-6
-                "
+              <LazyYoutube
+                class="object-cover object-center mb-6 z-0"
                 :src="`${video.personalizovane_videa.link}`"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe>
+              />
 
-              <h3
-                class="
-                  tracking-widest
-                  text-gold-100 text-xs
-                  font-medium
-                  title-font
-                "
+              <transition
+                appear
+                appear-class="transform scale-50"
+                appear-to-class="opacity-100 "
+                appear-active-class="transition duration-1000 ease-in-out"
               >
-                {{ video.personalizovane_videa.Typ }}
-              </h3>
+                <h3
+                  class="
+                    tracking-widest
+                    text-gold-100 text-xs
+                    font-medium
+                    title-font
+                  "
+                >
+                  {{ video.personalizovane_videa.Typ }}
+                </h3>
+              </transition>
               <h2 class="text-lg text-gray-900 font-medium title-font mb-4">
                 {{ video.personalizovane_videa.Nazov_videa }}
               </h2>
-              <p class="leading-relaxed text-base">
-                {{ video.personalizovane_videa.Vseobecny_popis }}
-              </p>
-              <div v-html="$md.render(video.Personalizovany_popis)"></div>
+
+              <div class="leading-relaxed text-base text-left">
+                <p>
+                  {{ video.personalizovane_videa.Vseobecny_popis }}
+                </p>
+                <div v-html="$md.render(video.Personalizovany_popis)"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -416,7 +429,7 @@ export default {
     return {
       den: 'pondelok',
       den_spisovne: 'pondelok',
-      tyzden: 1,
+      tyzden: '1',
       tyzden_spisovne: 'Týždeň 1',
       visibledays: false,
       visibleweeks: false,
