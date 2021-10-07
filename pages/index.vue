@@ -10,7 +10,7 @@
         >
           <img
             class="object-center"
-            v-lazy="'/pic/CC.jpg'"
+            src="/pic/CC.jpg"
             @load="loadLogo"
             v-show="isLoadedLogo"
             alt=""
