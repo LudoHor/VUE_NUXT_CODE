@@ -4,12 +4,17 @@
       <h1 class="text-3xl text-gold-100 text-center m-2">Vitajte na stránke</h1>
       <div class="section max-w-xl">
         <transition
-          appear
-          appear-class="transform scale-50"
-          appear-to-class="opacity-100 "
-          appear-active-class="transition duration-1000 ease-in-out"
+          enter-class="transform scale-50"
+          enter-to-class="opacity-100 "
+          enter-active-class="transition duration-1000 ease-in-out"
         >
-          <img class="object-center" v-lazy="'/pic/CC.jpg'" alt="" />
+          <img
+            class="object-center"
+            v-lazy="'/pic/CC.jpg'"
+            @load="loadLogo"
+            v-show="isLoadedLogo"
+            alt=""
+          />
         </transition>
       </div>
       <Logo />
@@ -23,6 +28,16 @@ import Logo from '~/components/Logo'
 export default {
   components: {
     Logo,
+  },
+  data() {
+    return {
+      isLoadedLogo: false,
+    }
+  },
+  methods: {
+    loadLogo() {
+      this.isLoadedLogo = true
+    },
   },
 }
 </script>
