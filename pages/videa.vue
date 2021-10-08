@@ -379,23 +379,17 @@
                 :src="`${video.personalizovane_videa.link}`"
               />
 
-              <transition
-                appear
-                appear-class="transform scale-50"
-                appear-to-class="opacity-100 "
-                appear-active-class="transition duration-1000 ease-in-out"
+              <h3
+                class="
+                  tracking-widest
+                  text-gold-100 text-xs
+                  font-medium
+                  title-font
+                "
               >
-                <h3
-                  class="
-                    tracking-widest
-                    text-gold-100 text-xs
-                    font-medium
-                    title-font
-                  "
-                >
-                  {{ video.personalizovane_videa.Typ }}
-                </h3>
-              </transition>
+                {{ video.personalizovane_videa.Typ }}
+              </h3>
+
               <h2 class="text-lg text-gray-900 font-medium title-font mb-4">
                 {{ video.personalizovane_videa.Nazov_videa }}
               </h2>
@@ -404,7 +398,10 @@
                 <p>
                   {{ video.personalizovane_videa.Vseobecny_popis }}
                 </p>
-                <div v-html="$md.render(video.Personalizovany_popis)"></div>
+                <div
+                  v-if="video.Personalizovany_popis"
+                  v-html="$md.render(video.Personalizovany_popis)"
+                ></div>
               </div>
             </div>
           </div>
