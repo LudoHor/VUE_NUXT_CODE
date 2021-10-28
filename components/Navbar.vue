@@ -6,7 +6,7 @@
     >
       <div class="max-w-6xl mx-auto px-4">
         <div class="flex justify-between">
-          <div class="flex space-x-4">
+          <div class="flex mini:space-x-4">
             <!-- logo -->
             <div>
               <nuxt-link

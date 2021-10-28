@@ -6,9 +6,9 @@
     <section class="m-2 text-gray-600 text-center">
       <!-- component -->
 
-      <div class="container px-5 mx-auto max-w-7x1">
-        <div class="flex flex-wrap w-full mb-4 p-4">
-          <div class="w-full mb-6 lg:mb-0">
+      <div class="md:container md:mx-auto mini:px-1 md:px-3 max-w-7x1">
+        <div class="flex flex-wrap w-full p-1 mini:p-2">
+          <div class="w-full">
             <h1
               class="
                 sm:text-4xl
@@ -21,9 +21,9 @@
             >
               Môj Plán
             </h1>
-            <div class="grid justify-items-center">
-              <div class="flex absolute">
-                <div class="mt-1 relative" v-click-outside="closedays">
+            <div class="grid justify-items-center mb-1">
+              <div class="mini:flex  ">
+                <div class="relative" v-click-outside="closedays">
                   <button
                     @click="visibledays = !visibledays"
                     ref="ludo"
@@ -187,7 +187,7 @@
                     </ul>
                   </transition>
                 </div>
-                <div class="mt-1 relative" v-click-outside="closeweeks">
+                <div class=" relative" v-click-outside="closeweeks">
                   <button
                     @click="visibleweeks = !visibleweeks"
                     ref="ludo"
@@ -367,15 +367,15 @@
           </div>
         </div>
 
-        <div class="flex flex-wrap -m-4" v-if="listOfVideos">
+        <div class="flex flex-wrap" v-if="listOfVideos">
           <div
-            class="w-full xl:w-1/3 md:w-1/2 p-4"
+            class="w-full xl:w-1/3 md:w-1/2"
             v-for="video in listOfVideos"
             :key="video.id"
           >
-            <div class="bg-white p-6 rounded-lg">
+            <div class="bg-white md:p-3 rounded-lg">
               <LazyYoutube
-                class="object-cover object-center mb-6 z-0"
+                class="object-cover object-center mb-2 z-0"
                 :src="`${video.personalizovane_videa.link}`"
               />
 
@@ -390,18 +390,20 @@
                 {{ video.personalizovane_videa.Typ }}
               </h3>
 
-              <h2 class="text-lg text-gray-900 font-medium title-font mb-4">
+              <h2 class="text-lg text-gray-900 font-medium title-font mb-2">
                 {{ video.personalizovane_videa.Nazov_videa }}
               </h2>
 
-              <div class="leading-relaxed text-base text-left">
+              <div class="text-gold-100 text-left mb-2">
                 <p>
                   {{ video.personalizovane_videa.Vseobecny_popis }}
                 </p>
-                <div
-                  v-if="video.Personalizovany_popis"
-                  v-html="$md.render(video.Personalizovany_popis)"
-                ></div>
+                <p>
+                  <ul class="list-none"> 
+                    <li class = "ml-3" v-for="(line,i) in video.personalizovany_popis.split(/\r?\n/)" :key="i"> {{line}}</li>
+                  
+                  </ul>
+                </p>
               </div>
             </div>
           </div>
@@ -479,11 +481,14 @@ export default {
     },
 
     closedays() {
+     
       if (this.visibledays) {
         this.visibledays = false
+        
       }
     },
     closeweeks() {
+      
       if (this.visibleweeks) {
         this.visibleweeks = false
       }

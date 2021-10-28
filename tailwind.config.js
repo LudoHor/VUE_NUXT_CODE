@@ -1,6 +1,9 @@
 module.exports = {
   theme: {
     extend: {
+      screens: {
+        mini: '360px',
+      },
       colors: {
         gold: {
           50: '#c0ad99',
