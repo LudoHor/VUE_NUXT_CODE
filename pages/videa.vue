@@ -22,7 +22,7 @@
               Môj Plán
             </h1>
             <div class="grid justify-items-center mb-1">
-              <div class="mini:flex  ">
+              <div class="mini:flex">
                 <div class="relative" v-click-outside="closedays">
                   <button
                     @click="visibledays = !visibledays"
@@ -187,7 +187,7 @@
                     </ul>
                   </transition>
                 </div>
-                <div class=" relative" v-click-outside="closeweeks">
+                <div class="relative" v-click-outside="closeweeks">
                   <button
                     @click="visibleweeks = !visibleweeks"
                     ref="ludo"
@@ -395,15 +395,30 @@
               </h2>
 
               <div class="text-gold-100 text-left mb-2">
-                <p>
-                  {{ video.personalizovane_videa.Vseobecny_popis }}
-                </p>
-                <p>
-                  <ul class="list-none"> 
-                    <li class = "ml-3" v-for="(line,i) in video.personalizovany_popis.split(/\r?\n/)" :key="i"> {{line}}</li>
-                  
-                  </ul>
-                </p>
+                <div v-if="video.personalizovane_videa.Vseobecny_popis">
+                  <p
+                    class="ml-7"
+                    v-for="(
+                      line, i
+                    ) in video.personalizovane_videa.Vseobecny_popis.split(
+                      /\r?\n/
+                    )"
+                    :key="i"
+                  >
+                    {{ line }}
+                  </p>
+                </div>
+                <div v-if="video.personalizovany_popis">
+                  <p
+                    class="ml-7"
+                    v-for="(line, i) in video.personalizovany_popis.split(
+                      /\r?\n/
+                    )"
+                    :key="i"
+                  >
+                    {{ line }}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -415,15 +430,10 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import VideoPlayer from 'nuxt-video-player'
-import NavVideo from '~/components/NavBarVideo'
 
 export default {
   middleware: 'auth',
-  components: {
-    VideoPlayer,
-    NavVideo,
-  },
+  components: {},
   data() {
     return {
       den: 'pondelok',
@@ -481,14 +491,11 @@ export default {
     },
 
     closedays() {
-     
       if (this.visibledays) {
         this.visibledays = false
-        
       }
     },
     closeweeks() {
-      
       if (this.visibleweeks) {
         this.visibleweeks = false
       }
