@@ -373,7 +373,10 @@
             v-for="video in listOfVideos"
             :key="video.id"
           >
-            <div class="bg-white md:p-3 rounded-lg">
+            <div
+              v-if="video.personalizovane_videa"
+              class="bg-white md:p-3 rounded-lg"
+            >
               <LazyYoutube
                 class="object-cover object-center mb-2 z-0"
                 :src="`${video.personalizovane_videa.link}`"
