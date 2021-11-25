@@ -1,5 +1,5 @@
 <template>
-  <div class="z-0">
+  <div v-if="loggedInUser" class="z-0">
     <!-- component -->
     <!-- https://dribbble.com/shots/14959823-Dashboard-UI-Elements -->
 
@@ -468,10 +468,12 @@ export default {
   },
 
   computed: {
-    ...mapGetters(['loggedInUser']),
+    loggedInUser() {
+      return this.$strapi.user
+    },
 
     listOfVideos() {
-      const videa = this.$store.state.auth.user.Denny_plan
+      const videa = this.$strapi.user.Denny_plan
       const filteredVid = videa.filter(
         (el) => el.Den == this.den && el.Tyzden == this.tyzden
       )

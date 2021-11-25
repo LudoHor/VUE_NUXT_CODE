@@ -1,5 +1,5 @@
 <template>
-  <div class="py-8">
+  <div class="py-10 mini:py-8">
     <nav
       class="bg-gray-100 fixed inset-x-0 top-0 z-50"
       v-click-outside="mobile_menu_close"
@@ -51,13 +51,13 @@
 
           <!-- secondary nav -->
           <div class="flex items-center space-x-1">
-            <a
+            <button
               v-if="isAuthenticated"
-              href=""
               class="hidden md:flex py-5 px-3 text-gold-100"
               @click="logout()"
-              >Odhlásiť sa</a
             >
+              Odhlásiť sa
+            </button>
             <a
               v-if="!isAuthenticated"
               href="/login"
@@ -139,13 +139,15 @@ export default {
       mobile_menu: true,
     }
   },
+
   computed: {
-    ...mapGetters(['isAuthenticated', 'loggedInUser']),
+    isAuthenticated() {
+      return this.$strapi.user
+    },
   },
-  mounted() {},
   methods: {
-    async logout(redirect) {
-      await this.$auth.logout()
+    logout() {
+      this.$strapi.logout()
 
       this.$router.push('/')
       this.mobile_menu_close()
