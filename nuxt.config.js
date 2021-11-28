@@ -44,7 +44,7 @@ export default {
   ],
 
   strapi: {
-    url: 'https://coachapp.click',
+    url: 'http://localhost:1337',
   },
 
   // This is for displaying rich text content in the frontend.

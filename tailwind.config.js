@@ -1,6 +1,10 @@
 module.exports = {
   theme: {
     extend: {
+      width: {
+        '1/3/1': '31.5%',
+        '1/2/1': '48%',
+      },
       screens: {
         mini: '360px',
       },

@@ -369,7 +369,7 @@
 
         <div class="flex flex-wrap" v-if="listOfVideos">
           <div
-            class="w-full xl:w-1/3 md:w-1/2"
+            class="w-full xl:w-1/3 md:w-1/2 rounded-xl shadow-xl m-2"
             v-for="video in listOfVideos"
             :key="video.id"
           >
