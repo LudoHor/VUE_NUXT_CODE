@@ -1,6 +1,8 @@
 <template>
   <section class="m-2 text-gray-600 text-center">
-    <!-- component -->
+    <button class="py-5 px-3 text-gold-100" @click="newVideo()">
+      Nove Video
+    </button>
 
     <div class="md:container md:mx-auto mini:px-1 md:px-3 max-w-7xl">
       <div class="flex flex-wrap">
@@ -111,6 +113,10 @@ export default {
       await this.$strapi.delete('personalizovane-videas', video.id)
 
       this.$store.dispatch('setVideos')
+    },
+    newVideo() {
+      this.$store.commit('setSelectedVideo', null)
+      this.$store.commit('setvisibleModalNewvideo', true)
     },
   },
 }

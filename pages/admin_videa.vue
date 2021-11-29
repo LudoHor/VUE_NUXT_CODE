@@ -1,8 +1,5 @@
 <template>
   <div>
-    <button class="py-5 px-3 text-gold-100" @click="newVideo()">
-      Nove Video
-    </button>
     <VideoComp :videos="videos" v-if="videos" />
     <NewVideoModal v-if="visibleModal" />
   </div>
