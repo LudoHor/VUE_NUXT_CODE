@@ -44,16 +44,16 @@
                   text-gray-800
                 "
               >
-                {{ id ? id : 'Nove video' }}
+                {{ username ? username : 'Novy uzivattel' }}
               </div>
               <div class="mt-4 self-center text-xl sm:text-sm text-gray-800">
-                Enter your credentials to access your account s sadsad sad sad
+                Uzivatel
               </div>
 
               <div class="mt-10">
                 <div class="flex flex-col mb-5">
                   <label class="mb-1 text-xs tracking-wide text-gray-600"
-                    >Nazov videa:</label
+                    >Uzivatelske meno:</label
                   >
                   <div class="relative">
                     <div
@@ -73,7 +73,7 @@
                     </div>
 
                     <input
-                      v-model="Nazov_videa"
+                      v-model="username"
                       class="
                         text-sm
                         placeholder-gray-500
@@ -92,7 +92,7 @@
                 <div class="flex flex-col mb-6">
                   <label
                     class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
-                    >Link:</label
+                    >Email:</label
                   >
                   <div class="relative">
                     <div
@@ -114,7 +114,7 @@
                     </div>
 
                     <input
-                      v-model="Link"
+                      v-model="email"
                       class="
                         text-sm
                         placeholder-gray-500
@@ -130,10 +130,138 @@
                     />
                   </div>
                 </div>
+
                 <div class="flex flex-col mb-6">
                   <label
                     class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
-                    >Typ:</label
+                    >Meno:</label
+                  >
+                  <div class="relative">
+                    <div
+                      class="
+                        inline-flex
+                        items-center
+                        justify-center
+                        absolute
+                        left-0
+                        top-0
+                        h-full
+                        w-10
+                        text-gray-400
+                      "
+                    >
+                      <span>
+                        <i class="fas fa-lock text-blue-500"></i>
+                      </span>
+                    </div>
+
+                    <input
+                      v-model="meno"
+                      class="
+                        text-sm
+                        placeholder-gray-500
+                        pl-4
+                        pr-4
+                        rounded-2xl
+                        border border-gray-400
+                        w-full
+                        py-2
+                        focus:outline-none focus:border-blue-400
+                      "
+                      placeholder="vloz link"
+                    />
+                  </div>
+                </div>
+
+                <div class="flex flex-col mb-6">
+                  <label
+                    class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+                    >Priezvisko:</label
+                  >
+                  <div class="relative">
+                    <div
+                      class="
+                        inline-flex
+                        items-center
+                        justify-center
+                        absolute
+                        left-0
+                        top-0
+                        h-full
+                        w-10
+                        text-gray-400
+                      "
+                    >
+                      <span>
+                        <i class="fas fa-lock text-blue-500"></i>
+                      </span>
+                    </div>
+
+                    <input
+                      v-model="priezvisko"
+                      class="
+                        text-sm
+                        placeholder-gray-500
+                        pl-4
+                        pr-4
+                        rounded-2xl
+                        border border-gray-400
+                        w-full
+                        py-2
+                        focus:outline-none focus:border-blue-400
+                      "
+                      placeholder="vloz link"
+                    />
+                  </div>
+                </div>
+
+                <div class="flex flex-col mb-6">
+                  <label
+                    class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+                    >Heslo:</label
+                  >
+                  <div class="relative">
+                    <div
+                      class="
+                        inline-flex
+                        items-center
+                        justify-center
+                        absolute
+                        left-0
+                        top-0
+                        h-full
+                        w-10
+                        text-gray-400
+                      "
+                    >
+                      <span>
+                        <i class="fas fa-lock text-blue-500"></i>
+                      </span>
+                    </div>
+
+                    <input
+                      v-model="password"
+                      type="password"
+                      class="
+                        text-sm
+                        placeholder-gray-500
+                        pl-4
+                        pr-4
+                        rounded-2xl
+                        border border-gray-400
+                        w-full
+                        py-2
+                        focus:outline-none focus:border-blue-400
+                      "
+                      placeholder="vloz link"
+                    />
+                  </div>
+                </div>
+
+                <div class="flex flex-col mb-6">
+                  <label
+                    class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+                    >Terapeut:</label
                   >
                   <div class="relative">
                     <div
@@ -155,7 +283,7 @@
                     </div>
 
                     <select
-                      v-model="Typ"
+                      v-model="terapeut"
                       class="
                         text-sm
                         placeholder-gray-500
@@ -168,8 +296,11 @@
                         focus:outline-none focus:border-blue-400
                       "
                     >
-                      <option>typ1</option>
-                      <option>typ2</option>
+                      <option>Dida</option>
+                      <option>Lenka</option>
+                      <option>Zuzka</option>
+                      <option>Janci</option>
+                      <option>Sasa</option>
                     </select>
                   </div>
                 </div>
@@ -177,7 +308,7 @@
                 <div class="flex flex-col mb-6">
                   <label
                     class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
-                    >Vseobecny popis:</label
+                    >Program:</label
                   >
                   <div class="relative">
                     <div
@@ -198,8 +329,8 @@
                       </span>
                     </div>
 
-                    <textarea
-                      v-model="Vseobecny_popis"
+                    <select
+                      v-model="program"
                       class="
                         text-sm
                         placeholder-gray-500
@@ -211,8 +342,11 @@
                         py-2
                         focus:outline-none focus:border-blue-400
                       "
-                      placeholder=""
-                    />
+                    >
+                      <option>Complex_concept</option>
+                      <option>Complex_concept_Diva</option>
+                      <option>Complex_concept_Deti</option>
+                    </select>
                   </div>
                 </div>
 
@@ -284,50 +418,67 @@
 export default {
   data() {
     return {
-      Vseobecny_popis: '',
-      Link: '',
-      Nazov_videa: '',
-      Typ: '',
       id: '',
+      username: '',
+      email: '',
+      password: '',
+      meno: '',
+      priezvisko: '',
+      terapeut: '',
+      program: '',
     }
   },
   mounted() {
-    const video = this.$store.getters.getSelectedVideo
-    if (video) {
-      this.Vseobecny_popis = video.Vseobecny_popis
-      this.Link = video.link
-      this.Nazov_videa = video.Nazov_videa
-      this.Typ = video.Typ
-      this.id = video.id
+    const user = this.$store.getters.getSelectedUser
+    if (user) {
+      this.id = user.id
+      this.username = user.username
+      this.email = user.email
+      this.password = user.password
+      this.meno = user.Meno
+      this.priezvisko = user.Priezvisko
+      this.terapeut = user.Terapeut
+      this.program = user.Program
     } else {
-      this.Vseobecny_popis = ''
-      this.Link = ''
-      this.Nazov_videa = ''
-      this.Typ = ''
       this.id = ''
+      this.username = ''
+      this.email = ''
+      this.password = ''
+      this.meno = ''
+      this.priezvisko = ''
+      this.terapeut = ''
+      this.program = ''
     }
   },
   methods: {
     closeModal() {
-      this.$store.commit('setvisibleModalNewvideo', false)
+      this.$store.commit('setvisibleModalNewUser', false)
     },
     async saveVideo() {
       if (this.id) {
-        await this.$strapi.update('personalizovane-videas', this.id, {
-          Vseobecny_popis: this.Vseobecny_popis,
-          link: this.Link,
-          Nazov_videa: this.Nazov_videa,
-          Typ: this.Typ,
+        await this.$strapi.update('users', this.id, {
+          username: this.username,
+          email: this.email,
+          password: this.password,
+          Meno: this.meno,
+          Priezvisko: this.priezvisko,
+          Terapeut: this.terapeut,
+          Program: this.program,
         })
       } else {
-        await this.$strapi.create('personalizovane-videas', {
-          Vseobecny_popis: this.Vseobecny_popis,
-          link: this.Link,
-          Nazov_videa: this.Nazov_videa,
-          Typ: this.Typ,
+        await this.$strapi.create('users', {
+          username: this.username,
+          email: this.email,
+          password: this.password,
+          Meno: this.meno,
+          Priezvisko: this.priezvisko,
+          Terapeut: this.terapeut,
+          Program: this.program,
+          confirmed: true,
+          blocked: false,
         })
       }
-      await this.$store.dispatch('setVideos')
+      this.$store.dispatch('setUsers')
       this.closeModal()
     },
   },

@@ -7,7 +7,7 @@
 
 <script>
 // import axios from 'axios'
-import { mapGetters } from 'vuex'
+
 import NewVideoModal from '~/components/NewVideoModal'
 import VideoComp from '~/components/VideoComp'
 
