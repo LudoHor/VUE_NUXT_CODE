@@ -1,6 +1,18 @@
 <template>
-  <section class="m-2 text-gray-600 text-center">
+  <section class="m-2 text-center">
     <button class="py-5 px-3 text-gold-100" @click="newVideo()">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-20 w-20"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
+          clip-rule="evenodd"
+        />
+      </svg>
       Nove Video
     </button>
 
@@ -20,24 +32,37 @@
             />
 
             <div class="text-center">
-              <h5 class="text-xl font-semibold mb-2">
+              <h3
+                class="
+                  tracking-widest
+                  text-gold-100 text-xs
+                  font-medium
+                  title-font
+                "
+              >
+                {{ video.Typ }}
+              </h3>
+              <h2 class="text-lg text-gold-500 font-medium title-font mb-2">
                 {{ video.Nazov_videa }}
-              </h5>
-              <h3 class="text-sm font-semibold mb-2">{{ video.Typ }}</h3>
+              </h2>
 
-              <p class="mb-4">
-                {{ video.Vseobecny_popis }}
-              </p>
-
-              <p class="mb-4">
-                {{ video.id }}
-              </p>
+              <div class="text-gold-100 text-left mb-2">
+                <div v-if="video.Vseobecny_popis">
+                  <p
+                    class="ml-7"
+                    v-for="(line, i) in video.Vseobecny_popis.split(/\r?\n/)"
+                    :key="i"
+                  >
+                    {{ line }}
+                  </p>
+                </div>
+              </div>
 
               <button
                 class="
-                  bg-purple-500
-                  text-white
-                  active:bg-purple-600
+                  bg-gold-50
+                  hover:bg-gold-100
+                  text-gold-500
                   font-bold
                   uppercase
                   text-xs
@@ -61,9 +86,9 @@
               </button>
               <button
                 class="
-                  bg-purple-500
-                  text-white
-                  active:bg-purple-600
+                  bg-gold-50
+                  hover:bg-gold-100
+                  text-gold-500
                   font-bold
                   uppercase
                   text-xs
@@ -99,7 +124,6 @@
 export default {
   props: {
     videos: [],
-    admin: { default: false },
   },
   data() {
     return {}

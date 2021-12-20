@@ -367,64 +367,8 @@
           </div>
         </div>
 
-        <div class="flex flex-wrap" v-if="listOfVideos">
-          <div
-            class="w-full xl:w-1/3 md:w-1/2 rounded-xl shadow-xl m-2"
-            v-for="video in listOfVideos"
-            :key="video.id"
-          >
-            <div
-              v-if="video.personalizovane_videa"
-              class="bg-white md:p-3 rounded-lg"
-            >
-              <LazyYoutube
-                class="object-cover object-center mb-2 z-0"
-                :src="`${video.personalizovane_videa.link}`"
-              />
-
-              <h3
-                class="
-                  tracking-widest
-                  text-gold-100 text-xs
-                  font-medium
-                  title-font
-                "
-              >
-                {{ video.personalizovane_videa.Typ }}
-              </h3>
-
-              <h2 class="text-lg text-gray-900 font-medium title-font mb-2">
-                {{ video.personalizovane_videa.Nazov_videa }}
-              </h2>
-
-              <div class="text-gold-100 text-left mb-2">
-                <div v-if="video.personalizovane_videa.Vseobecny_popis">
-                  <p
-                    class="ml-7"
-                    v-for="(
-                      line, i
-                    ) in video.personalizovane_videa.Vseobecny_popis.split(
-                      /\r?\n/
-                    )"
-                    :key="i"
-                  >
-                    {{ line }}
-                  </p>
-                </div>
-                <div v-if="video.personalizovany_popis">
-                  <p
-                    class="ml-7"
-                    v-for="(line, i) in video.personalizovany_popis.split(
-                      /\r?\n/
-                    )"
-                    :key="i"
-                  >
-                    {{ line }}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div v-if="listOfVideos">
+          <VideoComp :videos="listOfVideos" />
         </div>
       </div>
     </section>
@@ -432,11 +376,11 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import VideoComp from '~/components/VideoComp_pers'
 
 export default {
   middleware: 'auth',
-  components: {},
+  components: { VideoComp },
   data() {
     return {
       den: 'pondelok',

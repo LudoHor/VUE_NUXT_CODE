@@ -33,7 +33,17 @@
           <!--body-->
           <div class="flex flex-col items-center justify-center">
             <div
-              class="flex flex-col bg-white px-4 sm:px-6 md:px-8 lg:px-10 py-8"
+              class="
+                flex flex-col
+                bg-white
+                px-4
+                sm:px-6
+                md:px-8
+                lg:px-10
+                py-8
+                w-full
+                sm:w-3/4
+              "
             >
               <div
                 class="
@@ -41,18 +51,15 @@
                   self-center
                   text-xl
                   sm:text-3xl
-                  text-gray-800
+                  text-gold-500
                 "
               >
-                {{ id ? id : 'Nove video' }}
-              </div>
-              <div class="mt-4 self-center text-xl sm:text-sm text-gray-800">
-                Enter your credentials to access your account s sadsad sad sad
+                Video
               </div>
 
               <div class="mt-10">
                 <div class="flex flex-col mb-5">
-                  <label class="mb-1 text-xs tracking-wide text-gray-600"
+                  <label class="mb-1 text-xs tracking-wide text-gold-500"
                     >Nazov videa:</label
                   >
                   <div class="relative">
@@ -65,25 +72,24 @@
                         left-0
                         top-0
                         h-full
-                        w-15
-                        text-gray-400
+                        text-gold-500
                       "
                     >
-                      <i class="fas fa-at text-blue-500"></i>
+                      <i class="fas fa-at text-gold-500"></i>
                     </div>
 
                     <input
                       v-model="Nazov_videa"
                       class="
                         text-sm
-                        placeholder-gray-500
+                        placeholder-gold-500
                         pl-4
                         pr-4
                         rounded-2xl
-                        border border-gray-400
+                        border border-gold-500
                         w-full
                         py-2
-                        focus:outline-none focus:border-blue-400
+                        focus:outline-none focus:border-gold-500
                       "
                       placeholder="vloz nazov videa"
                     />
@@ -91,7 +97,7 @@
                 </div>
                 <div class="flex flex-col mb-6">
                   <label
-                    class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+                    class="mb-1 text-xs sm:text-sm tracking-wide text-gold-500"
                     >Link:</label
                   >
                   <div class="relative">
@@ -105,11 +111,11 @@
                         top-0
                         h-full
                         w-10
-                        text-gray-400
+                        text-gold-500
                       "
                     >
                       <span>
-                        <i class="fas fa-lock text-blue-500"></i>
+                        <i class="fas fa-lock text-gold-500"></i>
                       </span>
                     </div>
 
@@ -117,14 +123,14 @@
                       v-model="Link"
                       class="
                         text-sm
-                        placeholder-gray-500
+                        placeholder-gold-500
                         pl-4
                         pr-4
                         rounded-2xl
-                        border border-gray-400
+                        border border-gold-500
                         w-full
                         py-2
-                        focus:outline-none focus:border-blue-400
+                        focus:outline-none focus:border-gold-500
                       "
                       placeholder="vloz link"
                     />
@@ -132,7 +138,7 @@
                 </div>
                 <div class="flex flex-col mb-6">
                   <label
-                    class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+                    class="mb-1 text-xs sm:text-sm tracking-wide text-gold-500"
                     >Typ:</label
                   >
                   <div class="relative">
@@ -150,7 +156,7 @@
                       "
                     >
                       <span>
-                        <i class="fas fa-lock text-blue-500"></i>
+                        <i class="fas fa-lock text-gold-500"></i>
                       </span>
                     </div>
 
@@ -158,25 +164,29 @@
                       v-model="Typ"
                       class="
                         text-sm
-                        placeholder-gray-500
+                        placeholder-gold-500
                         pl-4
                         pr-4
                         rounded-2xl
-                        border border-gray-400
+                        border border-gold-500
                         w-full
                         py-2
-                        focus:outline-none focus:border-blue-400
+                        focus:outline-none focus:border-gold-500
                       "
                     >
-                      <option>typ1</option>
-                      <option>typ2</option>
+                      <option>Dych</option>
+                      <option>Mobility</option>
+                      <option>Stability</option>
+                      <option>Funkcne_vzorce</option>
+                      <option>Myslienka</option>
+                      <option>Diastaza</option>
                     </select>
                   </div>
                 </div>
 
                 <div class="flex flex-col mb-6">
                   <label
-                    class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+                    class="mb-1 text-xs sm:text-sm tracking-wide text-gold-500"
                     >Vseobecny popis:</label
                   >
                   <div class="relative">
@@ -194,7 +204,7 @@
                       "
                     >
                       <span>
-                        <i class="fas fa-lock text-blue-500"></i>
+                        <i class="fas fa-lock text-gold-500"></i>
                       </span>
                     </div>
 
@@ -209,7 +219,7 @@
                         border border-gray-400
                         w-full
                         py-2
-                        focus:outline-none focus:border-blue-400
+                        focus:outline-none focus:border-gold-500
                       "
                       placeholder=""
                     />
@@ -219,7 +229,8 @@
                 <div class="flex w-full">
                   <button
                     class="
-                      text-purple-500
+                      hover:text-gold-900
+                      text-gold-500
                       background-transparent
                       font-bold
                       uppercase
@@ -241,9 +252,9 @@
                   </button>
                   <button
                     class="
-                      bg-purple-500
-                      text-white
-                      active:bg-purple-600
+                      bg-gold-50
+                      hover:bg-gold-100
+                      text-gold-500
                       font-bold
                       uppercase
                       text-xs
@@ -263,7 +274,7 @@
                     type="button"
                     @click="saveVideo()"
                   >
-                    Save Changes
+                    Uloz Zmeny
                   </button>
                 </div>
               </div>

@@ -33,7 +33,16 @@
           <!--body-->
           <div class="flex flex-col items-center justify-center">
             <div
-              class="flex flex-col bg-white px-4 sm:px-6 md:px-8 lg:px-10 py-8"
+              class="
+                flex flex-col
+                bg-white
+                px-4
+                sm:px-6
+                md:px-8
+                lg:px-10
+                py-8
+                w-full
+              "
             >
               <div
                 class="
@@ -41,14 +50,13 @@
                   self-center
                   text-xl
                   sm:text-3xl
-                  text-gray-800
+                  text-gold-500
+                  mb-6
                 "
               >
-                {{ 'Nove video' }}
+                Video
               </div>
-              <div class="mt-4 self-center text-xl sm:text-sm text-gray-800">
-                Enter your credentials to access your account s sadsad sad sad
-              </div>
+
               <SelectSearch
                 :video="video.personalizovane_videa"
                 @changeVid="changeVid($event)"
@@ -56,7 +64,7 @@
               <div class="mt-10">
                 <div class="flex flex-col mb-6">
                   <label
-                    class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+                    class="mb-1 text-xs sm:text-sm tracking-wide text-gold-500"
                     >Personalizovany popis:</label
                   >
                   <div class="relative">
@@ -74,7 +82,7 @@
                       "
                     >
                       <span>
-                        <i class="fas fa-lock text-blue-500"></i>
+                        <i class="fas fa-lock text-gold-500"></i>
                       </span>
                     </div>
 
@@ -82,14 +90,14 @@
                       v-model="personalizovany_popis"
                       class="
                         text-sm
-                        placeholder-gray-500
+                        placeholder-gold-500
                         pl-4
                         pr-4
                         rounded-2xl
-                        border border-gray-400
+                        border border-gold-500
                         w-full
                         py-2
-                        focus:outline-none focus:border-blue-400
+                        focus:outline-none focus:border-gold-500
                       "
                       placeholder=""
                     />
@@ -99,7 +107,8 @@
                 <div class="flex w-full">
                   <button
                     class="
-                      text-purple-500
+                      hover:text-gold-900
+                      text-gold-500
                       background-transparent
                       font-bold
                       uppercase
@@ -121,9 +130,9 @@
                   </button>
                   <button
                     class="
-                      bg-purple-500
-                      text-white
-                      active:bg-purple-600
+                      bg-gold-50
+                      hover:bg-gold-100
+                      text-gold-500
                       font-bold
                       uppercase
                       text-xs
@@ -150,7 +159,6 @@
             </div>
           </div>
           <!--footer-->
-          {{ video }}
         </div>
       </div>
     </div>

@@ -366,148 +366,142 @@
             </div>
           </div>
         </div>
-        <button
-          class="
-            bg-purple-500
-            text-white
-            active:bg-purple-600
-            font-bold
-            uppercase
-            text-xs
-            px-4
-            py-2
-            rounded
-            shadow
-            hover:shadow-md
-            outline-none
-            focus:outline-none
-            mr-1
-            mb-1
-            ease-linear
-            transition-all
-            duration-150
-          "
-          type="button"
-          @click="add()"
-        >
-          pridaj
+
+        <button class="py-5 px-3 text-gold-100" @click="add()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-20 w-20"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          Nove Video
         </button>
 
         <div class="flex flex-wrap" v-if="listOfVideos">
           <div
-            class="w-full xl:w-1/3 md:w-1/2 rounded-xl shadow-xl m-2"
+            class="w-full xl:w-1/3/1 md:w-1/2/1 shadow-xl rounded-xl m-1"
             v-for="video in listOfVideos"
             :key="video.id"
           >
-            <div
-              v-if="video.personalizovane_videa"
-              class="bg-white md:p-3 rounded-lg"
-            >
+            <!-- Card -->
+            <!-- Card -->
+            <div class="bg-white md:p-3 rounded-lg">
               <LazyYoutube
                 class="object-cover object-center mb-2 z-0"
                 :src="`${video.personalizovane_videa.link}`"
               />
 
-              <h3
-                class="
-                  tracking-widest
-                  text-gold-100 text-xs
-                  font-medium
-                  title-font
-                "
-              >
-                {{ video.personalizovane_videa.Typ }}
-              </h3>
+              <div class="text-center">
+                <h3
+                  class="
+                    tracking-widest
+                    text-gold-100 text-xs
+                    font-medium
+                    title-font
+                  "
+                >
+                  {{ video.personalizovane_videa.Typ }}
+                </h3>
+                <h2 class="text-lg text-gold-500 font-medium title-font mb-2">
+                  {{ video.personalizovane_videa.Nazov_videa }}
+                </h2>
 
-              <h2 class="text-lg text-gray-900 font-medium title-font mb-2">
-                {{ video.personalizovane_videa.Nazov_videa }}
-              </h2>
-
-              <div class="text-gold-100 text-left mb-2">
-                <div v-if="video.personalizovane_videa.Vseobecny_popis">
-                  <p
-                    class="ml-7"
-                    v-for="(
-                      line, i
-                    ) in video.personalizovane_videa.Vseobecny_popis.split(
-                      /\r?\n/
-                    )"
-                    :key="i"
-                  >
-                    {{ line }}
-                  </p>
-                </div>
-                <div v-if="video.personalizovany_popis">
-                  <p
-                    class="ml-7"
-                    v-for="(line, i) in video.personalizovany_popis.split(
-                      /\r?\n/
-                    )"
-                    :key="i"
-                  >
-                    {{ line }}
-                  </p>
+                <div class="text-gold-100 text-left mb-2">
+                  <div v-if="video.Vseobecny_popis">
+                    <p
+                      class="ml-7"
+                      v-for="(
+                        line, i
+                      ) in video.personalizovane_videa.Vseobecny_popis.split(
+                        /\r?\n/
+                      )"
+                      :key="i"
+                    >
+                      {{ line }}
+                    </p>
+                  </div>
                 </div>
 
-                <button
-                  class="
-                    bg-purple-500
-                    text-white
-                    active:bg-purple-600
-                    font-bold
-                    uppercase
-                    text-xs
-                    px-4
-                    py-2
-                    rounded
-                    shadow
-                    hover:shadow-md
-                    outline-none
-                    focus:outline-none
-                    mr-1
-                    mb-1
-                    ease-linear
-                    transition-all
-                    duration-150
-                  "
-                  type="button"
-                  @click="update(video)"
-                >
-                  Update
-                </button>
-                <button
-                  class="
-                    bg-purple-500
-                    text-white
-                    active:bg-purple-600
-                    font-bold
-                    uppercase
-                    text-xs
-                    px-4
-                    py-2
-                    rounded
-                    shadow
-                    hover:shadow-md
-                    outline-none
-                    focus:outline-none
-                    mr-1
-                    mb-1
-                    ease-linear
-                    transition-all
-                    duration-150
-                  "
-                  type="button"
-                  @click="Delete(video)"
-                >
-                  Delete
-                </button>
+                <div class="text-gold-100 text-left mb-2">
+                  <div v-if="video.personalizovany_popis">
+                    <p
+                      class="ml-7"
+                      v-for="(line, i) in video.personalizovany_popis.split(
+                        /\r?\n/
+                      )"
+                      :key="i"
+                    >
+                      {{ line }}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
+
+            <button
+              class="
+                bg-gold-50
+                hover:bg-gold-100
+                text-gold-500
+                font-bold
+                uppercase
+                text-xs
+                px-4
+                py-2
+                rounded
+                shadow
+                hover:shadow-md
+                outline-none
+                focus:outline-none
+                mr-1
+                mb-1
+                ease-linear
+                transition-all
+                duration-150
+              "
+              type="button"
+              @click="update(video)"
+            >
+              Upravit
+            </button>
+            <button
+              class="
+                bg-gold-50
+                hover:bg-gold-100
+                text-gold-500
+                font-bold
+                uppercase
+                text-xs
+                px-4
+                py-2
+                rounded
+                shadow
+                hover:shadow-md
+                outline-none
+                focus:outline-none
+                mr-1
+                mb-1
+                ease-linear
+                transition-all
+                duration-150
+              "
+              type="button"
+              @click="Delete(video)"
+            >
+              Vymazat
+            </button>
+
+            <!-- Card -->
           </div>
         </div>
       </div>
     </section>
-    {{ visibleModal }}
 
     <PlanModal
       :video="cur_video"
