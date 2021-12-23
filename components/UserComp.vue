@@ -3,7 +3,7 @@
     <button class="py-5 px-3 text-gold-100" @click="newUser()">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        class="h-20 w-20"
+        class="h-20 w-20 mx-auto"
         viewBox="0 0 20 20"
         fill="currentColor"
       >
@@ -46,9 +46,9 @@
             <footer class="text-center py-3 px-8 text-gray-500">
               <button
                 class="
-                  bg-purple-500
-                  text-white
-                  active:bg-purple-600
+                  bg-gold-50
+                  hover:bg-gold-100
+                  text-gold-500
                   font-bold
                   uppercase
                   text-xs
@@ -72,9 +72,9 @@
               </button>
               <button
                 class="
-                  bg-purple-500
-                  text-white
-                  active:bg-purple-600
+                  bg-gold-50
+                  hover:bg-gold-100
+                  text-gold-500
                   font-bold
                   uppercase
                   text-xs
@@ -95,6 +95,32 @@
                 @click="Delete(user)"
               >
                 Vymazat
+              </button>
+              <button
+                class="
+                  bg-gold-50
+                  hover:bg-gold-100
+                  text-gold-500
+                  font-bold
+                  uppercase
+                  text-xs
+                  px-4
+                  py-2
+                  rounded
+                  shadow
+                  hover:shadow-md
+                  outline-none
+                  focus:outline-none
+                  mr-1
+                  mb-1
+                  ease-linear
+                  transition-all
+                  duration-150
+                "
+                type="button"
+                @click="plan(user.id)"
+              >
+                Plan
               </button>
             </footer>
           </div>
@@ -119,6 +145,9 @@ export default {
     openEditModal(user) {
       this.$store.commit('setSelectedUser', user)
       this.$store.commit('setvisibleModalNewUser', true)
+    },
+    plan(id) {
+      this.$router.push(`/admin_plan/${id}`)
     },
     async Delete(user) {
       await this.$strapi.delete('users', user.id)

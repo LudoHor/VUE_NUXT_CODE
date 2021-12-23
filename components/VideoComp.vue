@@ -1,9 +1,9 @@
 <template>
   <section class="m-2 text-center">
-    <button class="py-5 px-3 text-gold-100" @click="newVideo()">
+    <button class="text-gold-100" @click="newVideo()">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        class="h-20 w-20"
+        class="h-20 w-20 mx-auto"
         viewBox="0 0 20 20"
         fill="currentColor"
       >
