@@ -16,7 +16,7 @@ export default {
     NewUserModal,
     UserComp,
   },
-  middleware: 'auth',
+  middleware: 'admin',
   computed: {},
   data() {
     return {}

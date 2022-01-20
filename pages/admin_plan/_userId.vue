@@ -519,7 +519,7 @@ import SelectSearch from '~/components/SelectSearch'
 import PlanModal from '~/components/PlanModal'
 
 export default {
-  middleware: 'auth',
+  middleware: 'admin',
   components: { SelectSearch, PlanModal },
   data() {
     return {

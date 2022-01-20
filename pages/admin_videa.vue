@@ -16,7 +16,7 @@ export default {
     NewVideoModal,
     VideoComp,
   },
-  middleware: 'auth',
+  middleware: 'admin',
   computed: {},
   data() {
     return {}

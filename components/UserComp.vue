@@ -150,8 +150,9 @@ export default {
       this.$router.push(`/admin_plan/${id}`)
     },
     async Delete(user) {
-      await this.$strapi.delete('users', user.id)
-
+      if (confirm('Naozaj chces vymazat?')) {
+        await this.$strapi.delete('users', user.id)
+      }
       this.$store.dispatch('setUsers')
     },
     newUser() {

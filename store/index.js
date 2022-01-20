@@ -46,11 +46,16 @@ export const mutations = {
 
 export const actions = {
   async setVideos(state) {
-    const videos = await this.$strapi.find('personalizovane-videas')
+    const videos = await this.$strapi.find('personalizovane-videas', {
+      _limit: -1,
+    })
     state.commit('setVideos', videos)
   },
   async setUsers(state) {
-    const users = await this.$strapi.find('users')
+    const users = await this.$strapi.find('users', {
+      'role.name': 'Authenticated',
+    })
+    // const fil_users = users.filter((user) => user.role.name != 'Admin')
     state.commit('setUsers', users)
   },
 }

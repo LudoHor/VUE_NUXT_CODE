@@ -33,7 +33,7 @@
 
             <!-- primary nav -->
             <div
-              v-if="isAuthenticated"
+              v-if="isAuthenticated && !isAdmin"
               class="hidden md:flex items-center space-x-1"
             >
               <a
@@ -45,6 +45,19 @@
                 href="/profile"
                 class="py-5 px-3 text-gold-100 hover:text-gold-500"
                 >Profil</a
+              >
+            </div>
+
+            <div v-if="isAdmin" class="hidden md:flex items-center space-x-1">
+              <a
+                href="/admin_videa"
+                class="py-5 px-3 text-gold-100 hover:text-gold-500"
+                >Admin videa</a
+              >
+              <a
+                href="/admin_uzivatelia"
+                class="py-5 px-3 text-gold-100 hover:text-gold-500"
+                >Admin Uzivatelia</a
               >
             </div>
           </div>
@@ -104,14 +117,28 @@
         :class="{ hidden: mobile_menu }"
       >
         <a
+          v-if="!isAdmin"
           href="/videa"
           class="block py-2 px-4 text-center text-gold-100 hover:bg-gray-200"
           ><strong>Môj Plán</strong></a
         >
         <a
+          v-if="!isAdmin"
           href="/profile"
           class="block py-2 px-4 text-center text-gold-100 hover:bg-gray-200"
           ><strong>Profil</strong></a
+        >
+        <a
+          v-if="isAdmin"
+          href="/admin_videa"
+          class="block py-2 px-4 text-center text-gold-100 hover:bg-gray-200"
+          ><strong>Admin Videa</strong></a
+        >
+        <a
+          v-if="isAdmin"
+          href="/admin_uzivatelia"
+          class="block py-2 px-4 text-center text-gold-100 hover:bg-gray-200"
+          ><strong>Admin Uzivatelia</strong></a
         >
         <div
           class="
@@ -143,6 +170,9 @@ export default {
   computed: {
     isAuthenticated() {
       return this.$strapi.user
+    },
+    isAdmin() {
+      return this.$strapi.user.role.name == 'Admin'
     },
   },
   methods: {

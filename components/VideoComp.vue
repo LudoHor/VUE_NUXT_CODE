@@ -16,11 +16,22 @@
       Nove Video
     </button>
 
+    <div class="flex items-center justify-center">
+      <div class="flex border-2 border-gray-200 rounded">
+        <input
+          v-model="search_value"
+          type="text"
+          class="px-4 py-2 w-80"
+          placeholder="vyhladaj podla nazvu"
+        />
+      </div>
+    </div>
+
     <div class="md:container md:mx-auto mini:px-1 md:px-3 max-w-7xl">
       <div class="flex flex-wrap">
         <div
           class="w-full xl:w-1/3/1 md:w-1/2/1 shadow-xl rounded-xl m-1"
-          v-for="video in videos"
+          v-for="video in fil_videos"
           :key="video.id"
         >
           <!-- Card -->
@@ -126,7 +137,21 @@ export default {
     videos: [],
   },
   data() {
-    return {}
+    return {
+      search_value: '',
+    }
+  },
+  computed: {
+    fil_videos() {
+      if (this.search_value) {
+        return this.videos.filter((video) =>
+          video.Nazov_videa.toLowerCase().includes(
+            this.search_value.toLowerCase()
+          )
+        )
+      }
+      return this.videos
+    },
   },
   methods: {
     openEditModal(video) {
@@ -139,6 +164,7 @@ export default {
       await this.$store.dispatch('setVideos')
     },
     newVideo() {
+      console.log(this.videos)
       this.$store.commit('setSelectedVideo', null)
       this.$store.commit('setvisibleModalNewvideo', true)
     },

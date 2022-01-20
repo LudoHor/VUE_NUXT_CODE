@@ -44,7 +44,7 @@
                   text-gray-800
                 "
               >
-                {{ username ? username : 'Novy uzivattel' }}
+                {{ username ? username : 'Novy uzivatel' }}
               </div>
               <div class="mt-4 self-center text-xl sm:text-sm text-gray-800">
                 Uzivatel
@@ -85,7 +85,7 @@
                         py-2
                         focus:outline-none focus:border-blue-400
                       "
-                      placeholder="vloz nazov videa"
+                      placeholder="vloz uzivatelske meno"
                     />
                   </div>
                 </div>
@@ -126,7 +126,7 @@
                         py-2
                         focus:outline-none focus:border-blue-400
                       "
-                      placeholder="vloz link"
+                      placeholder="vloz email"
                     />
                   </div>
                 </div>
@@ -168,7 +168,7 @@
                         py-2
                         focus:outline-none focus:border-blue-400
                       "
-                      placeholder="vloz link"
+                      placeholder="vloz meno"
                     />
                   </div>
                 </div>
@@ -210,7 +210,7 @@
                         py-2
                         focus:outline-none focus:border-blue-400
                       "
-                      placeholder="vloz link"
+                      placeholder="vloz priezvisko"
                     />
                   </div>
                 </div>
@@ -253,7 +253,7 @@
                         py-2
                         focus:outline-none focus:border-blue-400
                       "
-                      placeholder="vloz link"
+                      placeholder="vloz heslo"
                     />
                   </div>
                 </div>
@@ -343,9 +343,9 @@
                         focus:outline-none focus:border-blue-400
                       "
                     >
-                      <option>Complex_concept</option>
-                      <option>Complex_concept_Diva</option>
-                      <option>Complex_concept_Deti</option>
+                      <option>Complex_Concept</option>
+                      <option>Complex_Concept_Diva</option>
+                      <option>Complex_Concept_Deti</option>
                     </select>
                   </div>
                 </div>
