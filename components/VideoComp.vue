@@ -165,7 +165,6 @@ export default {
       await this.$store.dispatch('setVideos')
     },
     newVideo() {
-      console.log(this.videos)
       this.$store.commit('setSelectedVideo', null)
       this.$store.commit('setvisibleModalNewvideo', true)
     },
