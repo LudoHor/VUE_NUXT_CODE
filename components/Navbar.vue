@@ -172,6 +172,7 @@ export default {
       return this.$strapi.user
     },
     isAdmin() {
+      if (!this.isAuthenticated) return false
       return this.$strapi.user.role.name == 'Admin'
     },
   },
