@@ -159,8 +159,9 @@ export default {
       this.$store.commit('setvisibleModalNewvideo', true)
     },
     async Delete(video) {
-      await this.$strapi.delete('personalizovane-videas', video.id)
-
+      if (confirm('Naozaj chces vymazat?')) {
+        await this.$strapi.delete('personalizovane-videas', video.id)
+      }
       await this.$store.dispatch('setVideos')
     },
     newVideo() {
