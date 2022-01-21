@@ -13,13 +13,14 @@
           clip-rule="evenodd"
         />
       </svg>
-      Nove Video
+      Nové Video
     </button>
 
     <div class="flex items-center justify-center">
       <div class="flex border-2 border-gray-200 rounded">
         <input
           v-model="search_value"
+          @input="search_value = search_value"
           type="text"
           class="px-4 py-2 w-80"
           placeholder="vyhladaj podla nazvu"
