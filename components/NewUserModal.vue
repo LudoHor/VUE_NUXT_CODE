@@ -33,7 +33,17 @@
           <!--body-->
           <div class="flex flex-col items-center justify-center">
             <div
-              class="flex flex-col bg-white px-4 sm:px-6 md:px-8 lg:px-10 py-8"
+              class="
+                flex flex-col
+                bg-white
+                px-4
+                sm:px-6
+                md:px-8
+                lg:px-10
+                py-8
+                w-full
+                sm:w-3/4
+              "
             >
               <div
                 class="
@@ -41,18 +51,16 @@
                   self-center
                   text-xl
                   sm:text-3xl
-                  text-gray-800
+                  text-gold-500
                 "
               >
-                {{ username ? username : 'Novy uzivatel' }}
-              </div>
-              <div class="mt-4 self-center text-xl sm:text-sm text-gray-800">
-                Uzivatel
+                {{ username ? username : 'Nový užívateľ' }}
               </div>
 
               <div class="mt-10">
                 <div class="flex flex-col mb-5">
-                  <label class="mb-1 text-xs tracking-wide text-gray-600"
+                  <label
+                    class="mb-1 text-xs sm:text-sm tracking-wide text-gold-500"
                     >Uzivatelske meno:</label
                   >
                   <div class="relative">
@@ -66,24 +74,24 @@
                         top-0
                         h-full
                         w-15
-                        text-gray-400
+                        text-gold-500
                       "
                     >
-                      <i class="fas fa-at text-blue-500"></i>
+                      <i class="fas fa-at text-gold-500"></i>
                     </div>
 
                     <input
                       v-model="username"
                       class="
                         text-sm
-                        placeholder-gray-500
+                        placeholder-gold-500
                         pl-4
                         pr-4
                         rounded-2xl
-                        border border-gray-400
+                        border border-gold-500
                         w-full
                         py-2
-                        focus:outline-none focus:border-blue-400
+                        focus:outline-none focus:border-gold-500
                       "
                       placeholder="vloz uzivatelske meno"
                     />
@@ -91,7 +99,7 @@
                 </div>
                 <div class="flex flex-col mb-6">
                   <label
-                    class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+                    class="mb-1 text-xs sm:text-sm tracking-wide text-gold-500"
                     >Email:</label
                   >
                   <div class="relative">
@@ -105,11 +113,11 @@
                         top-0
                         h-full
                         w-10
-                        text-gray-400
+                        text-gold-500
                       "
                     >
                       <span>
-                        <i class="fas fa-lock text-blue-500"></i>
+                        <i class="fas fa-lock text-gold-500"></i>
                       </span>
                     </div>
 
@@ -117,14 +125,14 @@
                       v-model="email"
                       class="
                         text-sm
-                        placeholder-gray-500
+                        placeholder-gold-500
                         pl-4
                         pr-4
                         rounded-2xl
-                        border border-gray-400
+                        border border-gold-500
                         w-full
                         py-2
-                        focus:outline-none focus:border-blue-400
+                        focus:outline-none focus:border-gold-500
                       "
                       placeholder="vloz email"
                     />
@@ -133,7 +141,7 @@
 
                 <div class="flex flex-col mb-6">
                   <label
-                    class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+                    class="mb-1 text-xs sm:text-sm tracking-wide text-gold-500"
                     >Meno:</label
                   >
                   <div class="relative">
@@ -147,11 +155,11 @@
                         top-0
                         h-full
                         w-10
-                        text-gray-400
+                        text-gold-500
                       "
                     >
                       <span>
-                        <i class="fas fa-lock text-blue-500"></i>
+                        <i class="fas fa-lock text-gold-500"></i>
                       </span>
                     </div>
 
@@ -159,14 +167,14 @@
                       v-model="meno"
                       class="
                         text-sm
-                        placeholder-gray-500
+                        placeholder-gold-500
                         pl-4
                         pr-4
                         rounded-2xl
-                        border border-gray-400
+                        border border-gold-500
                         w-full
                         py-2
-                        focus:outline-none focus:border-blue-400
+                        focus:outline-none focus:border-gold-500
                       "
                       placeholder="vloz meno"
                     />
@@ -175,7 +183,7 @@
 
                 <div class="flex flex-col mb-6">
                   <label
-                    class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+                    class="mb-1 text-xs sm:text-sm tracking-wide text-gold-500"
                     >Priezvisko:</label
                   >
                   <div class="relative">
@@ -189,11 +197,11 @@
                         top-0
                         h-full
                         w-10
-                        text-gray-400
+                        text-gold-500
                       "
                     >
                       <span>
-                        <i class="fas fa-lock text-blue-500"></i>
+                        <i class="fas fa-lock text-gold-500"></i>
                       </span>
                     </div>
 
@@ -201,14 +209,14 @@
                       v-model="priezvisko"
                       class="
                         text-sm
-                        placeholder-gray-500
+                        placeholder-gold-500
                         pl-4
                         pr-4
                         rounded-2xl
-                        border border-gray-400
+                        border border-gold-500
                         w-full
                         py-2
-                        focus:outline-none focus:border-blue-400
+                        focus:outline-none focus:border-gold-500
                       "
                       placeholder="vloz priezvisko"
                     />
@@ -217,7 +225,7 @@
 
                 <div class="flex flex-col mb-6">
                   <label
-                    class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+                    class="mb-1 text-xs sm:text-sm tracking-wide text-gold-500"
                     >Heslo:</label
                   >
                   <div class="relative">
@@ -231,11 +239,11 @@
                         top-0
                         h-full
                         w-10
-                        text-gray-400
+                        text-gold-500
                       "
                     >
                       <span>
-                        <i class="fas fa-lock text-blue-500"></i>
+                        <i class="fas fa-lock text-gold-500"></i>
                       </span>
                     </div>
 
@@ -244,14 +252,14 @@
                       type="password"
                       class="
                         text-sm
-                        placeholder-gray-500
+                        placeholder-gold-500
                         pl-4
                         pr-4
                         rounded-2xl
-                        border border-gray-400
+                        border border-gold-500
                         w-full
                         py-2
-                        focus:outline-none focus:border-blue-400
+                        focus:outline-none focus:border-gold-500
                       "
                       placeholder="vloz heslo"
                     />
@@ -260,7 +268,7 @@
 
                 <div class="flex flex-col mb-6">
                   <label
-                    class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+                    class="mb-1 text-xs sm:text-sm tracking-wide text-gold-500"
                     >Terapeut:</label
                   >
                   <div class="relative">
@@ -274,11 +282,11 @@
                         top-0
                         h-full
                         w-10
-                        text-gray-400
+                        text-gold-500
                       "
                     >
                       <span>
-                        <i class="fas fa-lock text-blue-500"></i>
+                        <i class="fas fa-lock text-gold-500"></i>
                       </span>
                     </div>
 
@@ -286,14 +294,14 @@
                       v-model="terapeut"
                       class="
                         text-sm
-                        placeholder-gray-500
+                        placeholder-gold-500
                         pl-4
                         pr-4
                         rounded-2xl
-                        border border-gray-400
+                        border border-gold-100
                         w-full
                         py-2
-                        focus:outline-none focus:border-blue-400
+                        focus:outline-none focus:border-gold-500
                       "
                     >
                       <option>Dida</option>
@@ -307,7 +315,7 @@
 
                 <div class="flex flex-col mb-6">
                   <label
-                    class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+                    class="mb-1 text-xs sm:text-sm tracking-wide text-gold-500"
                     >Program:</label
                   >
                   <div class="relative">
@@ -321,11 +329,11 @@
                         top-0
                         h-full
                         w-10
-                        text-gray-400
+                        text-gold-500
                       "
                     >
                       <span>
-                        <i class="fas fa-lock text-blue-500"></i>
+                        <i class="fas fa-lock text-gold-500"></i>
                       </span>
                     </div>
 
@@ -333,14 +341,14 @@
                       v-model="program"
                       class="
                         text-sm
-                        placeholder-gray-500
+                        placeholder-gold-500
                         pl-4
                         pr-4
                         rounded-2xl
-                        border border-gray-400
+                        border border-gold-100
                         w-full
                         py-2
-                        focus:outline-none focus:border-blue-400
+                        focus:outline-none focus:border-gold-500
                       "
                     >
                       <option>Complex_Concept</option>
@@ -350,16 +358,20 @@
                   </div>
                 </div>
 
-                <div class="flex w-full">
+                <div class="flex w-full justify-center mx-auto">
                   <button
                     class="
-                      text-purple-500
-                      background-transparent
+                      bg-gold-50
+                      hover:bg-gold-100
+                      text-gold-500
                       font-bold
                       uppercase
-                      px-6
+                      text-xs
+                      px-4
                       py-2
-                      text-sm
+                      rounded
+                      shadow
+                      hover:shadow-md
                       outline-none
                       focus:outline-none
                       mr-1
@@ -371,13 +383,13 @@
                     type="button"
                     @click="closeModal()"
                   >
-                    Close
+                    Zatvoriť
                   </button>
                   <button
                     class="
-                      bg-purple-500
-                      text-white
-                      active:bg-purple-600
+                      bg-gold-50
+                      hover:bg-gold-100
+                      text-gold-500
                       font-bold
                       uppercase
                       text-xs
@@ -397,7 +409,7 @@
                     type="button"
                     @click="saveVideo()"
                   >
-                    Save Changes
+                    Uložiť zmeny
                   </button>
                 </div>
               </div>

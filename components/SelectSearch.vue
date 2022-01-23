@@ -189,7 +189,7 @@ export default {
     curList() {
       if (this.input) {
         return this.all_videos.filter((vid) =>
-          vid.Nazov_videa.toLowerCase().includes(this.input.toLowerCase())
+          vid.Nazov_videa.toLowerCase().startsWith(this.input.toLowerCase())
         )
       }
       return this.all_videos

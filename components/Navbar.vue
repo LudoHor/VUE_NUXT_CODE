@@ -52,12 +52,12 @@
               <a
                 href="/admin_videa"
                 class="py-5 px-3 text-gold-100 hover:text-gold-500"
-                >Admin videa</a
+                >Admin Videá</a
               >
               <a
                 href="/admin_uzivatelia"
                 class="py-5 px-3 text-gold-100 hover:text-gold-500"
-                >Admin Uzivatelia</a
+                >Admin Užívatelia</a
               >
             </div>
           </div>
@@ -132,13 +132,13 @@
           v-if="isAdmin"
           href="/admin_videa"
           class="block py-2 px-4 text-center text-gold-100 hover:bg-gray-200"
-          ><strong>Admin Videa</strong></a
+          ><strong>Admin Videá</strong></a
         >
         <a
           v-if="isAdmin"
           href="/admin_uzivatelia"
           class="block py-2 px-4 text-center text-gold-100 hover:bg-gray-200"
-          ><strong>Admin Uzivatelia</strong></a
+          ><strong>Admin Užívatelia</strong></a
         >
         <div
           class="

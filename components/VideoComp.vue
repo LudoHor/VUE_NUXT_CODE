@@ -17,15 +17,21 @@
     </button>
 
     <div class="flex items-center justify-center">
-      <div class="flex border-2 border-gray-200 rounded">
-        <input
-          v-model="search_value"
-          @input="search_value = search_value"
-          type="text"
-          class="px-4 py-2 w-80"
-          placeholder="vyhladaj podla nazvu"
-        />
-      </div>
+      <input
+        v-model="search_value"
+        type="text"
+        class="
+          px-4
+          py-2
+          w-80
+          flex
+          border-2 border-gold-100
+          active:border-gold-100
+          placeholder-gold-500
+          rounded
+        "
+        placeholder="vyhladaj podla nazvu"
+      />
     </div>
 
     <div class="md:container md:mx-auto mini:px-1 md:px-3 max-w-7xl">
@@ -94,7 +100,7 @@
                 type="button"
                 @click="openEditModal(video)"
               >
-                Upravit
+                Upraviť
               </button>
               <button
                 class="
@@ -120,7 +126,7 @@
                 type="button"
                 @click="Delete(video)"
               >
-                Vymazat
+                Vymazať
               </button>
             </div>
           </div>
@@ -146,7 +152,7 @@ export default {
     fil_videos() {
       if (this.search_value) {
         return this.videos.filter((video) =>
-          video.Nazov_videa.toLowerCase().includes(
+          video.Nazov_videa.toLowerCase().startsWith(
             this.search_value.toLowerCase()
           )
         )

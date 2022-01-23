@@ -60,7 +60,7 @@
               <div class="mt-10">
                 <div class="flex flex-col mb-5">
                   <label class="mb-1 text-xs tracking-wide text-gold-500"
-                    >Nazov videa:</label
+                    >Názov videa:</label
                   >
                   <div class="relative">
                     <div
@@ -187,7 +187,7 @@
                 <div class="flex flex-col mb-6">
                   <label
                     class="mb-1 text-xs sm:text-sm tracking-wide text-gold-500"
-                    >Vseobecny popis:</label
+                    >Všeobecný popis:</label
                   >
                   <div class="relative">
                     <div
@@ -200,7 +200,7 @@
                         top-0
                         h-full
                         w-10
-                        text-gray-400
+                        text-gold-500
                       "
                     >
                       <span>
@@ -212,11 +212,11 @@
                       v-model="Vseobecny_popis"
                       class="
                         text-sm
-                        placeholder-gray-500
+                        placeholder-gold-500
                         pl-4
                         pr-4
                         rounded-2xl
-                        border border-gray-400
+                        border border-gold-100
                         w-full
                         py-2
                         focus:outline-none focus:border-gold-500
@@ -226,7 +226,7 @@
                   </div>
                 </div>
 
-                <div class="flex w-full">
+                <div class="flex mx-auto items-center justify-center">
                   <button
                     class="
                       hover:text-gold-900
@@ -248,7 +248,7 @@
                     type="button"
                     @click="closeModal()"
                   >
-                    Close
+                    Zatvoriť
                   </button>
                   <button
                     class="
@@ -274,7 +274,7 @@
                     type="button"
                     @click="saveVideo()"
                   >
-                    Uloz Zmeny
+                    Uložiť zmeny
                   </button>
                 </div>
               </div>

@@ -65,7 +65,7 @@
                 <div class="flex flex-col mb-6">
                   <label
                     class="mb-1 text-xs sm:text-sm tracking-wide text-gold-500"
-                    >Personalizovany popis:</label
+                    >Personalizovaný popis:</label
                   >
                   <div class="relative">
                     <div
@@ -126,7 +126,7 @@
                     type="button"
                     @click="closeModal()"
                   >
-                    Close
+                    Zatvoriť
                   </button>
                   <button
                     class="
@@ -152,7 +152,7 @@
                     type="button"
                     @click="saveVideo()"
                   >
-                    Save Changes
+                    Uložiť zmeny
                   </button>
                 </div>
               </div>

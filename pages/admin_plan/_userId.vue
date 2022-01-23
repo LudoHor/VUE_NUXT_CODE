@@ -19,7 +19,7 @@
                 text-gold-100
               "
             >
-              Môj Plán
+              {{ user.username }}
             </h1>
             <div class="grid justify-items-center mb-1">
               <div class="mini:flex">
@@ -380,7 +380,7 @@
               clip-rule="evenodd"
             />
           </svg>
-          Nove Video
+          Nové Video
         </button>
 
         <div class="flex flex-wrap" v-if="listOfVideos">
@@ -468,7 +468,7 @@
               type="button"
               @click="update(video)"
             >
-              Upravit
+              Upraviť
             </button>
             <button
               class="
@@ -494,7 +494,7 @@
               type="button"
               @click="Delete(video)"
             >
-              Vymazat
+              Vymazať
             </button>
 
             <!-- Card -->
@@ -558,6 +558,7 @@ export default {
   async created() {
     this.user = await this.$strapi.findOne('users', this.userId)
     this.videa = this.user.Denny_plan
+    console.log(this.user)
   },
 
   computed: {

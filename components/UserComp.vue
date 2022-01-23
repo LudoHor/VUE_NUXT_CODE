@@ -13,7 +13,7 @@
           clip-rule="evenodd"
         />
       </svg>
-      Novy Uzivatel
+      Nový Užívateľ
     </button>
 
     <div class="md:container md:mx-auto mini:px-1 md:px-3 max-w-7xl">
@@ -32,18 +32,26 @@
               class="rounded-full p-4 h-40 mx-auto"
             />
             <!--Card Header-->
-            <header class="text-2xl font-extrabold py-4 px-4 text-center">
+            <header
+              class="
+                text-2xl
+                font-extrabold
+                py-4
+                px-4
+                text-center text-gold-500
+              "
+            >
               {{ user.Meno + ' ' + user.Priezvisko }}
             </header>
             <div>
-              <ul class="text-gray-500 text-center font-semibold">
+              <ul class="text-center font-semibold text-gold-100">
                 <li>{{ user.Program }}</li>
                 <li>{{ user.email }}</li>
                 <li>Terapeut: {{ user.Terapeut }}</li>
               </ul>
             </div>
             <!--Card Footer-->
-            <footer class="text-center py-3 px-8 text-gray-500">
+            <footer class="text-center py-3 px-8">
               <button
                 class="
                   bg-gold-50
@@ -68,7 +76,7 @@
                 type="button"
                 @click="openEditModal(user)"
               >
-                Upravit
+                Upraviť
               </button>
               <button
                 class="
@@ -94,7 +102,7 @@
                 type="button"
                 @click="Delete(user)"
               >
-                Vymazat
+                Vymazať
               </button>
               <button
                 class="
@@ -120,7 +128,7 @@
                 type="button"
                 @click="plan(user.id)"
               >
-                Plan
+                Plán
               </button>
             </footer>
           </div>
@@ -150,7 +158,7 @@ export default {
       this.$router.push(`/admin_plan/${id}`)
     },
     async Delete(user) {
-      if (confirm('Naozaj chces vymazat?')) {
+      if (confirm('Naozaj chceš vymazať?')) {
         await this.$strapi.delete('users', user.id)
       }
       this.$store.dispatch('setUsers')
