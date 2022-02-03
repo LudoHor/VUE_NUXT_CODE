@@ -23,7 +23,7 @@
             </h1>
             <div class="grid justify-items-center mb-1">
               <div class="mini:flex">
-                <div class="relative" v-click-outside="closedays">
+                <div class="relative mx-1" v-click-outside="closedays">
                   <button
                     @click="visibledays = !visibledays"
                     ref="ludo"
@@ -187,7 +187,7 @@
                     </ul>
                   </transition>
                 </div>
-                <div class="relative" v-click-outside="closeweeks">
+                <div class="relative mx-1" v-click-outside="closeweeks">
                   <button
                     @click="visibleweeks = !visibleweeks"
                     ref="ludo"

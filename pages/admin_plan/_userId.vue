@@ -12,8 +12,8 @@
             <h1
               class="
                 sm:text-4xl
-                text-5xl
-                font-medium font-bold
+                text-xl
+                font-bold
                 title-font
                 mb-2
                 text-gold-100
@@ -23,7 +23,7 @@
             </h1>
             <div class="grid justify-items-center mb-1">
               <div class="mini:flex">
-                <div class="relative" v-click-outside="closedays">
+                <div class="relative mx-1" v-click-outside="closedays">
                   <button
                     @click="visibledays = !visibledays"
                     ref="ludo"
@@ -187,7 +187,7 @@
                     </ul>
                   </transition>
                 </div>
-                <div class="relative" v-click-outside="closeweeks">
+                <div class="relative mx-1" v-click-outside="closeweeks">
                   <button
                     @click="visibleweeks = !visibleweeks"
                     ref="ludo"
@@ -382,6 +382,101 @@
           </svg>
           Nové Video
         </button>
+        <div class="mini:flex justify-center">
+          <div class="flex flex-col mb-6 mx-1">
+            <label class="mb-1 text-xs sm:text-sm tracking-wide text-gold-500"
+              >Začiatok plánu</label
+            >
+            <div class="relative">
+              <div
+                class="
+                  inline-flex
+                  items-center
+                  justify-center
+                  absolute
+                  left-0
+                  top-0
+                  h-full
+                  w-10
+                  text-gold-500
+                "
+              >
+                <span>
+                  <i class="fas fa-lock text-gold-500"></i>
+                </span>
+              </div>
+
+              <input
+                name="start_date"
+                @change="change_start_date()"
+                placeholder="Zaciatok planu"
+                v-model="zaciatok_planu"
+                class="
+                  w-40
+                  bg-white
+                  border border-gold-100
+                  rounded-md
+                  shadow-sm
+                  cursor-default
+                  focus:outline-none
+                  focus:ring-1
+                  focus:ring-gold-500
+                  focus:border-gold-500
+                  sm:text-sm
+                  py-2
+                "
+                type="date"
+              />
+            </div>
+          </div>
+
+          <div class="flex flex-col mb-6 mx-1">
+            <label class="mb-1 text-xs sm:text-sm tracking-wide text-gold-500"
+              >Koniec plánu</label
+            >
+            <div class="relative">
+              <div
+                class="
+                  inline-flex
+                  items-center
+                  justify-center
+                  absolute
+                  left-0
+                  top-0
+                  h-full
+                  w-10
+                  text-gold-500
+                "
+              >
+                <span>
+                  <i class="fas fa-lock text-gold-500"></i>
+                </span>
+              </div>
+
+              <input
+                name="end_date"
+                @change="change_end_date()"
+                v-model="koniec_planu"
+                placeholder="Zaciatok planu"
+                class="
+                  w-40
+                  bg-white
+                  border border-gold-100
+                  rounded-md
+                  shadow-sm
+                  cursor-default
+                  focus:outline-none
+                  focus:ring-1
+                  focus:ring-gold-500
+                  focus:border-gold-500
+                  sm:text-sm
+                  py-2
+                "
+                type="date"
+              />
+            </div>
+          </div>
+        </div>
 
         <div class="flex flex-wrap" v-if="listOfVideos">
           <div
@@ -523,6 +618,8 @@ export default {
   components: { SelectSearch, PlanModal },
   data() {
     return {
+      zaciatok_planu: '',
+      koniec_planu: '',
       userId: this.$route.params.userId,
       den: 'pondelok',
       den_spisovne: 'pondelok',
@@ -558,7 +655,8 @@ export default {
   async created() {
     this.user = await this.$strapi.findOne('users', this.userId)
     this.videa = this.user.Denny_plan
-    console.log(this.user)
+    this.zaciatok_planu = this.user.Start_date
+    this.koniec_planu = this.user.End_date
   },
 
   computed: {
@@ -631,6 +729,26 @@ export default {
     closeweeks() {
       if (this.visibleweeks) {
         this.visibleweeks = false
+      }
+    },
+
+    async change_start_date() {
+      try {
+        await this.$strapi.update('users', this.userId, {
+          Start_date: this.zaciatok_planu,
+        })
+      } catch {
+        console.log('error')
+      }
+    },
+
+    async change_end_date() {
+      try {
+        await this.$strapi.update('users', this.userId, {
+          End_date: this.koniec_planu,
+        })
+      } catch {
+        console.log('error')
       }
     },
   },
