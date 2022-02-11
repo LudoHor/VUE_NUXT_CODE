@@ -356,6 +356,102 @@
                       <option>Complex_Concept_Deti</option>
                     </select>
                   </div>
+                  <div class="mb-6">
+                    <label
+                      class="
+                        mb-1
+                        text-xs
+                        sm:text-sm
+                        tracking-wide
+                        text-gold-500
+                      "
+                      >Objektívny popis:</label
+                    >
+                    <div class="relative">
+                      <div
+                        class="
+                          inline-flex
+                          items-center
+                          justify-center
+                          absolute
+                          left-0
+                          top-0
+                          h-full
+                          w-10
+                          text-gold-500
+                        "
+                      >
+                        <span>
+                          <i class="fas fa-lock text-gold-500"></i>
+                        </span>
+                      </div>
+
+                      <textarea
+                        v-model="ob_popis"
+                        class="
+                          text-sm
+                          placeholder-gold-500
+                          pl-4
+                          pr-4
+                          rounded-2xl
+                          border border-gold-100
+                          py-2
+                          focus:outline-none focus:border-gold-500
+                          w-full
+                          h-40
+                        "
+                        placeholder=""
+                      />
+                    </div>
+                    <div class="mb-6">
+                      <label
+                        class="
+                          mb-1
+                          text-xs
+                          sm:text-sm
+                          tracking-wide
+                          text-gold-500
+                        "
+                        >Subjektívny popis:</label
+                      >
+                      <div class="relative">
+                        <div
+                          class="
+                            inline-flex
+                            items-center
+                            justify-center
+                            absolute
+                            left-0
+                            top-0
+                            h-full
+                            w-10
+                            text-gold-500
+                          "
+                        >
+                          <span>
+                            <i class="fas fa-lock text-gold-500"></i>
+                          </span>
+                        </div>
+
+                        <textarea
+                          v-model="sub_popis"
+                          class="
+                            text-sm
+                            placeholder-gold-500
+                            pl-4
+                            pr-4
+                            rounded-2xl
+                            border border-gold-100
+                            py-2
+                            focus:outline-none focus:border-gold-500
+                            w-full
+                            h-40
+                          "
+                          placeholder=""
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 <div class="flex w-full justify-center mx-auto">
@@ -438,6 +534,8 @@ export default {
       priezvisko: '',
       terapeut: '',
       program: '',
+      ob_popis: '',
+      sub_popis: '',
     }
   },
   mounted() {
@@ -451,6 +549,8 @@ export default {
       this.priezvisko = user.Priezvisko
       this.terapeut = user.Terapeut
       this.program = user.Program
+      this.ob_popis = user.OB_popis
+      this.sub_popis = user.Sub_popis
     } else {
       this.id = ''
       this.username = ''
@@ -460,6 +560,8 @@ export default {
       this.priezvisko = ''
       this.terapeut = ''
       this.program = ''
+      this.ob_popis = ''
+      this.sub_popis = ''
     }
   },
   methods: {
@@ -476,6 +578,8 @@ export default {
           Priezvisko: this.priezvisko,
           Terapeut: this.terapeut,
           Program: this.program,
+          OB_popis: this.ob_popis,
+          Sub_popis: this.sub_popis,
         })
       } else {
         await this.$strapi.create('users', {
@@ -488,6 +592,8 @@ export default {
           Program: this.program,
           confirmed: true,
           blocked: false,
+          OB_popis: this.ob_popis,
+          Sub_popis: this.sub_popis,
         })
       }
       this.$store.dispatch('setUsers')

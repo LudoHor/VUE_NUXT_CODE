@@ -477,6 +477,74 @@
             </div>
           </div>
         </div>
+        <div class="mb-6">
+          <label class="mb-1 text-xs sm:text-sm tracking-wide text-gold-500"
+            >Myšlienka dňa:</label
+          >
+          <div class="relative">
+            <div
+              class="
+                inline-flex
+                items-center
+                justify-center
+                absolute
+                left-0
+                top-0
+                h-full
+                w-10
+                text-gold-500
+              "
+            >
+              <span>
+                <i class="fas fa-lock text-gold-500"></i>
+              </span>
+            </div>
+
+            <textarea
+              v-model="myslienka_dna"
+              class="
+                text-sm
+                placeholder-gold-500
+                pl-4
+                pr-4
+                rounded-2xl
+                border border-gold-100
+                py-2
+                focus:outline-none focus:border-gold-500
+                w-full
+                xl:w-1/3/1
+                md:w-1/2/1
+              "
+              placeholder=""
+            />
+          </div>
+          <button
+            class="
+              bg-gold-50
+              hover:bg-gold-100
+              text-gold-500
+              font-bold
+              uppercase
+              text-xs
+              px-4
+              py-2
+              rounded
+              shadow
+              hover:shadow-md
+              outline-none
+              focus:outline-none
+              mr-1
+              mb-1
+              ease-linear
+              transition-all
+              duration-150
+            "
+            type="button"
+            @click="save_idea()"
+          >
+            Uložiť myšlienku dňa
+          </button>
+        </div>
 
         <div class="flex flex-wrap" v-if="listOfVideos">
           <div
@@ -618,6 +686,7 @@ export default {
   components: { SelectSearch, PlanModal },
   data() {
     return {
+      myslienka_dna: '',
       zaciatok_planu: '',
       koniec_planu: '',
       userId: this.$route.params.userId,
@@ -657,6 +726,7 @@ export default {
     this.videa = this.user.Denny_plan
     this.zaciatok_planu = this.user.Start_date
     this.koniec_planu = this.user.End_date
+    console.log(this.user)
   },
 
   computed: {
@@ -673,6 +743,7 @@ export default {
       const filteredVid = this.videa.filter(
         (el) => el.Den == this.den && el.Tyzden == this.tyzden
       )
+      this.myslienka_dna = filteredVid[0]?.Myslienka_dna
       if (filteredVid.length != 0) {
         return filteredVid[0].Video
       }
@@ -750,6 +821,38 @@ export default {
       } catch {
         console.log('error')
       }
+    },
+
+    async save_idea() {
+      try {
+        // await this.$strapi.update('users', this.userId, {
+        //   End_date: this.koniec_planu,
+        // })
+        let updated_videa = [...this.user.Denny_plan]
+
+        if (
+          !updated_videa.filter(
+            (v) => v.Den === this.den && v.Tyzden == this.tyzden
+          )[0]
+        ) {
+          updated_videa.push({
+            Den: this.den,
+            Tyzden: this.tyzden,
+            Video: [],
+            Myslienka_dna: this.myslienka_dna,
+          })
+        }
+
+        updated_videa.filter(
+          (v) => v.Den === this.den && v.Tyzden == this.tyzden
+        )[0].Myslienka_dna = this.myslienka_dna
+
+        this.videa = (
+          await this.$strapi.update('users', this.user.id, {
+            Denny_plan: updated_videa,
+          })
+        ).Denny_plan
+      } catch {}
     },
   },
 }
