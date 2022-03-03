@@ -22,6 +22,9 @@
               >
                 Môj Plán
               </h1>
+               <h3 class="text-gold-100  mb-3">
+            {{ comment ? '' + comment + '' : '' }}
+          </h3>
               <div class="grid justify-items-center mb-1">
                 <div class="mini:flex">
                   <div class="relative mx-1" v-click-outside="closedays">
@@ -367,9 +370,11 @@
               </div>
             </div>
           </div>
-          <h3 class="text-gold-100 italic text-lg">
+          <h3 class="text-gold-100 italic text-lg ">
             {{ myslienka_dna ? ',,' + myslienka_dna + '"' : '' }}
           </h3>
+
+         
 
           <div v-if="listOfVideos">
             <VideoComp :videos="listOfVideos" />
@@ -392,6 +397,7 @@ export default {
   data() {
     return {
       valid: true,
+      comment:'',
       myslienka_dna: '',
       den: 'pondelok',
       den_spisovne: 'pondelok',
@@ -444,6 +450,7 @@ export default {
       const filteredVid = videa.filter(
         (el) => el.Den == this.den && el.Tyzden == this.tyzden
       )
+      this.comment = filteredVid[0]?.poznamka_den
       this.myslienka_dna = filteredVid[0]?.Myslienka_dna
       if (filteredVid.length != 0) {
         return filteredVid[0].Video
