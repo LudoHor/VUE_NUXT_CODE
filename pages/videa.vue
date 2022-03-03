@@ -16,16 +16,16 @@
                   text-5xl
                   font-medium font-bold
                   title-font
-                  mb-2
+                  mb-4
                   text-gold-100
                 "
               >
                 Môj Plán
               </h1>
-               <h3 class="text-gold-100  mb-3">
+               <h3 class="text-gold-100  mb-5 ">
             {{ comment ? '' + comment + '' : '' }}
           </h3>
-              <div class="grid justify-items-center mb-1">
+              <div class="grid justify-items-center mb-5">
                 <div class="mini:flex">
                   <div class="relative mx-1" v-click-outside="closedays">
                     <button
@@ -370,7 +370,7 @@
               </div>
             </div>
           </div>
-          <h3 class="text-gold-100 italic text-lg ">
+          <h3 class="text-gold-100 italic text-lg mb-5 ">
             {{ myslienka_dna ? ',,' + myslienka_dna + '"' : '' }}
           </h3>
 
