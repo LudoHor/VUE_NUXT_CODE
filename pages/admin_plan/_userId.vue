@@ -797,7 +797,7 @@ export default {
     this.videa = this.user.Denny_plan
     this.zaciatok_planu = this.user.Start_date
     this.koniec_planu = this.user.End_date
-    console.log(this.user)
+    
   },
 
   computed: {

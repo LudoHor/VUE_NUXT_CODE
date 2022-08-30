@@ -429,9 +429,10 @@ export default {
   created() {
     this.user = this.$strapi.user
     const today = new Date()
-    console.log(today)
+
     this.zaciatok_planu = new Date(this.user.Start_date)
     this.koniec_planu = new Date(this.user.End_date)
+
 
     if (this.zaciatok_planu && this.koniec_planu) {
       if (this.zaciatok_planu > today || this.koniec_planu < today) {
