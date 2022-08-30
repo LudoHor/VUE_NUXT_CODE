@@ -101,12 +101,12 @@ export default {
     async login() {
       this.error = null
       try {
-        await this.$auth.loginWith('local', {
-          data: {
-            identifier: this.email,
-            password: this.password,
-          },
+        await this.$strapi.login({
+          identifier: this.email,
+          password: this.password,
         })
+        this.$store.commit('setIsAuth', true)
+
         this.$router.push('/')
       } catch (e) {
         this.error = e.response.data.message[0].messages[0].message

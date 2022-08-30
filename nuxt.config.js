@@ -38,10 +38,14 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@nuxtjs/auth',
     '@nuxtjs/markdownit',
     '@nuxt/image',
+    '@nuxtjs/strapi',
   ],
+
+  strapi: {
+    url: 'https://coachapp2.link',
+  },
 
   // This is for displaying rich text content in the frontend.
   markdownit: {
@@ -59,23 +63,23 @@ export default {
    ** Auth module configuration
    ** See https://auth.nuxtjs.org/schemes/local.html#options
    */
-  auth: {
-    strategies: {
-      local: {
-        endpoints: {
-          login: {
-            url: 'https://coachapp.click/auth/local',
-            method: 'post',
-            propertyName: 'jwt',
-          },
-          user: {
-            url: 'https://coachapp.click/users/me',
-            method: 'get',
-            propertyName: false,
-          },
-          logout: false,
-        },
-      },
-    },
-  },
+  // auth: {
+  //   strategies: {
+  //     local: {
+  //       endpoints: {
+  //         login: {
+  //           url: 'https://coachapp.click/auth/local',
+  //           method: 'post',
+  //           propertyName: 'jwt',
+  //         },
+  //         user: {
+  //           url: 'https://coachapp.click/users/me',
+  //           method: 'get',
+  //           propertyName: false,
+  //         },
+  //         logout: false,
+  //       },
+  //     },
+  //   },
+  // },
 }

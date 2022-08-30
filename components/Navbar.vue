@@ -1,5 +1,5 @@
 <template>
-  <div class="py-8">
+  <div class="py-10 mini:py-8">
     <nav
       class="bg-gray-100 fixed inset-x-0 top-0 z-50"
       v-click-outside="mobile_menu_close"
@@ -33,7 +33,7 @@
 
             <!-- primary nav -->
             <div
-              v-if="isAuthenticated"
+              v-if="isAuthenticated && !isAdmin"
               class="hidden md:flex items-center space-x-1"
             >
               <a
@@ -47,17 +47,30 @@
                 >Profil</a
               >
             </div>
+
+            <div v-if="isAdmin" class="hidden md:flex items-center space-x-1">
+              <a
+                href="/admin_videa"
+                class="py-5 px-3 text-gold-100 hover:text-gold-500"
+                >Admin Videá</a
+              >
+              <a
+                href="/admin_uzivatelia"
+                class="py-5 px-3 text-gold-100 hover:text-gold-500"
+                >Admin Užívatelia</a
+              >
+            </div>
           </div>
 
           <!-- secondary nav -->
           <div class="flex items-center space-x-1">
-            <a
+            <button
               v-if="isAuthenticated"
-              href=""
               class="hidden md:flex py-5 px-3 text-gold-100"
               @click="logout()"
-              >Odhlásiť sa</a
             >
+              Odhlásiť sa
+            </button>
             <a
               v-if="!isAuthenticated"
               href="/login"
@@ -104,14 +117,28 @@
         :class="{ hidden: mobile_menu }"
       >
         <a
+          v-if="!isAdmin"
           href="/videa"
           class="block py-2 px-4 text-center text-gold-100 hover:bg-gray-200"
           ><strong>Môj Plán</strong></a
         >
         <a
+          v-if="!isAdmin"
           href="/profile"
           class="block py-2 px-4 text-center text-gold-100 hover:bg-gray-200"
           ><strong>Profil</strong></a
+        >
+        <a
+          v-if="isAdmin"
+          href="/admin_videa"
+          class="block py-2 px-4 text-center text-gold-100 hover:bg-gray-200"
+          ><strong>Admin Videá</strong></a
+        >
+        <a
+          v-if="isAdmin"
+          href="/admin_uzivatelia"
+          class="block py-2 px-4 text-center text-gold-100 hover:bg-gray-200"
+          ><strong>Admin Užívatelia</strong></a
         >
         <div
           class="
@@ -139,13 +166,19 @@ export default {
       mobile_menu: true,
     }
   },
+
   computed: {
-    ...mapGetters(['isAuthenticated', 'loggedInUser']),
+    isAuthenticated() {
+      return this.$strapi.user
+    },
+    isAdmin() {
+      if (!this.isAuthenticated) return false
+      return this.$strapi.user.role.name == 'Admin'
+    },
   },
-  mounted() {},
   methods: {
-    async logout(redirect) {
-      await this.$auth.logout()
+    logout() {
+      this.$strapi.logout()
 
       this.$router.push('/')
       this.mobile_menu_close()

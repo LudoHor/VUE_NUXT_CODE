@@ -28,6 +28,7 @@ export default {
       isLoadedLogo: false,
     }
   },
+
   methods: {
     loadLogo() {
       this.isLoadedLogo = true
